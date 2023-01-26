@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Palatino' , sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 body {
@@ -60,7 +60,46 @@ body {
 
 /*first picture/section styles*/
 
+#welcome-header {
+    background: url('/media/welcome-pic.jfif') ;
+    background-attachment: fixed;
+    background-position: center;
+    height: 85vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
 
+#welcome-header h4 {
+    padding-bottom: 15px;
+}
+
+#welcome-header h2 {
+    color: #000000;
+    font-size: 40px;
+}
+
+#welcome-header h1 {
+    color: #000000;
+}
+
+#welcome-header button {
+    z-index: 2000;
+    background-color: transparent;
+    color: #00d9ff;
+    border: 0;
+    padding: 14px 0px 0px 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 30px;
+
+}
 
 
 
