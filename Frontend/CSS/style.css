@@ -8,7 +8,7 @@
 body {
     width: 100%;
 }
-
+/*navbar styles*/
 #nav {
     display: flex;
     align-items: center;
@@ -56,4 +56,70 @@ body {
     position: absolute;
     bottom: -6px;
     left: 30px;
+}
+
+/*first picture/section styles*/
+
+
+
+
+
+/*footer styles*/
+.footer {
+    width: 100%;
+    background-color: #dffdff;
+    padding: 10px 100px 40px 100px;
+    display: flex;
+}
+
+.footer div {
+    text-align: center;
+
+}
+
+.newsletter {
+    flex-grow: 2;
+    font-weight: 600;
+}
+
+.footer div h3 {
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.useful-links a {
+    font-weight: 600;
+    display: block;
+    text-decoration: underline;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.newsletter form input {
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px
+}
+
+.newsletter form button {
+    background: transparent;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.contact-us h3 {
+    font-size: 30px;
+}
+
+.contact-us p {
+    font-size: 20px;
+    color: #1a1a1a;
 }
