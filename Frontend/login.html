@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/loginform.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="/Frontend/home.js">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/65a27d019d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <section id="nav">
+        <a href=home.html><img src = "/media/G-phonez logo.png" width="200" height="120" class="logo" alt="Company logo"></a> 
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="/Frontend/home.html">Home</a></li>
+                <li><a href="/Frontend/about-us.html">About Us</a></li>
+                <li><a href="/Frontend/login.html">Login/Sign-Up</a></li>
+                <li><a href="/Frontend/contact-us.html">Contact Us</a></li>
+                <li><a href="/Frontend/shop.html">Shop</a></li>
+                <li><a href="/Frontend/basket.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/Frontend/myorders.html">My orders</a></li>
+            </ul>
+        </div>
+    </section>
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <h3>Sign In</h3>
+              </div>
+              <div class="card-body">
+                <form action="#" method="post">
+                  <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="remember-me">
+                    <label class="form-check-label" for="remember-me">Remember me</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                Don't have an account? <a href="#" class="text-primary toggle-form">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5 d-none">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-header bg-primary text-white text-center">
+                <h3>Sign Up</h3>
+              </div>
+              <div class="card-body">
+                <form action="#" method="post">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                Already have an account? <a href="#" class="text-primary toggle-form">Sign In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <script>
+        $(document).ready(function(){
+          $(".toggle-form").click(function(){
+            $(".container").toggleClass("d-none");
+          });
+        });
+      </script>
+      <script src="loginform.js"></script>
+</body>
+</html>
