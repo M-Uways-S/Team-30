@@ -140,8 +140,8 @@ body {
 
 .categories__card {
     margin: 1rem;
-    height: 525px;
-    width: 400px;
+    height: 400px;
+    width: 300px;
     border-radius: 4px;
     background-image: linear-gradient(
         to bottom,
