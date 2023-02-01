@@ -274,7 +274,7 @@ body {
   }
 
   .typing span {
-    color: #c8ebed;
+    color: #00d9ff;
   }
   
   @keyframes typing {
@@ -359,6 +359,7 @@ body {
 
   .team-content-box h3:hover{
     color: #00accb;
+    transition: 0.2s ease-in;
     font-size: 2em;
   }
   .team-content-box h4 {
