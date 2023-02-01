@@ -254,3 +254,126 @@ body {
     font-size: 20px;
     color: #1a1a1a;
 }
+
+/*about-us page*/
+
+.typing {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+  
+  .typed-out {
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 2s forwards;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+  }
+
+  .typing span {
+    color: #c8ebed;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  
+    to {
+      width: 100%;
+      border-right: hidden;
+    }
+  }
+
+.about-us{
+    width: 100%;
+    height: 80vh;
+}
+
+.about{
+    width: 1130px;
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text h2 {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.text p {
+    letter-spacing: 1px;
+}
+.picture {
+    height: auto;
+    width: 500px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .team-main {
+    width: 300px;
+    height: 400px;
+    padding: 50px 30px;
+    margin: 20px;
+  }
+  
+  .team-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .pic {
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .team-content-box h3{
+    color: #00d9ff;
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .team-content-box h3:hover{
+    color: #00accb;
+    font-size: 2em;
+  }
+  .team-content-box h4 {
+    font-weight: bold;
+  }
+
+@media only screen and (max-width: 768px) {
+    .typed-out {
+      font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .about {
+        flex-direction: column;
+    }
+}
+/*contact-us page*/
