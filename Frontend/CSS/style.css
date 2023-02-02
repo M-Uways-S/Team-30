@@ -13,7 +13,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
+    padding: 20px 10px;
     background: #dffdff;
     box-shadow: 0 5px rgba(0, 0, 0, 0.06);
     z-index: 999;
@@ -30,13 +30,13 @@ body {
 
 #navbar li {
     list-style: none;
-    padding: 0% 35px;
+    padding: 0% 20px;
     position: relative;
 }
 
 #navbar li a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     color: #1a1a1a;
     transition: 0.3s ease;
@@ -55,7 +55,7 @@ body {
     background: #00d9ff;
     position: absolute;
     bottom: -6px;
-    left: 30px;
+    left: 18px;
 }
 
 /*first picture/section styles*/
@@ -108,10 +108,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 95vh;
 }
 
 .categories h1 {
+    padding-top: 25px;
     background-color: #00d9ff;
     background-image: linear-gradient(
     to right,
@@ -122,7 +123,6 @@ body {
     #2cdfff 78%,
     #00d9ff 100%
     );
-
     background-size: 100%;
     margin-bottom: 4rem;
     font-size: 2.5rem;
@@ -140,39 +140,73 @@ body {
 
 .categories__card {
     margin: 1rem;
-    height: 400px;
-    width: 300px;
+    height: 350px;
+    width: 250px;
+    top: -50px;
     border-radius: 4px;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
         #dffdff 100%
     ),
-    url("/media/G-phonez\ logo.png");
+    url("/media/phones-cat.png");
     background-size: cover;
     position: relative;
     color: #fff;
 }
 
 .categories__card:nth-child(2) {
+    background-position: center;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
         #dffdff 100%
     ),
-    url("/media/G-phonez\ logo.png");
+    url("/media/cables-cat.png");
+}
+
+.categories__card:nth-child(3) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/charging-brick-cat.png");
+}
+
+.categories__card:nth-child(4) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/case-cat.png");
+}
+
+.categories__card:nth-child(5) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/mount-cat.png");
 }
 
 .categories h2 {
     position: absolute;
-    top: 350px;
-    left: 30px;
+    top: 320px;
+    left: 0px;
+    color:#000000;
 }
 
 .categories__card p {
     position: absolute;
-    top: 400px;
-    left: 30px;
+    top: 350px;
+    left: 0px;
+    color:#00d9ff;
 }
 
 .categories__card a {
@@ -181,17 +215,17 @@ body {
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: #f77062;
+    background-color: #81ecff;
     position: absolute;
-    top: 440px;
-    left: 30px;
+    top: 390px;
+    left: 0px;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .categories__card:hover {
-    transform: scale(1.075);
-    transition: 0.2s ease-in;
+    transform: scale(1.3);
+    transition: 0.4s ease-in;
     cursor: pointer;
 }
 
