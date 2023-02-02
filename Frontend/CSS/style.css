@@ -62,33 +62,96 @@ body {
 
 #welcome-header {
     background: url('/media/welcome-pic.jfif') ;
-    background-attachment: fixed;
-    background-position: center;
-    height: 85vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 25% right 0;
-    padding: 0 80px;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 80px 80px 80px 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    background-position: scroll;
 }
 
-#welcome-header h4 {
-    padding-bottom: 15px;
+.welcome-text{
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 10s forwards;
+    margin-bottom: 40px;
 }
 
-#welcome-header h2 {
+.welcome-text h1 {
+    text-align: left;
+    font-size: 30px;
     color: #000000;
-    font-size: 40px;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
 }
 
-#welcome-header h1 {
+.welcome-text2 {
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 15s backwards;
+    margin-bottom: 40px;
+}
+
+.welcome-text2 h2 {
+    color: #00d9ff;
+    font-size: 60px;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
+}
+
+.welcome-text3{
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 10s forwards;
+    margin-bottom: 40px;
+}
+
+.welcome-text3 h1 {
+    text-align: left;
+    font-size: 30px;
     color: #000000;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
 }
 
-#welcome-header button {
+.welcome-text4{
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 10s forwards;
+    margin-bottom: 40px;
+}
+
+.welcome-text4 h1 {
+    text-align: left;
+    font-size: 30px;
+    color: #000000;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
+}
+
+.welcome-text5 {
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    animation: typing 10s forwards;
+    margin-bottom: 40px;
+}
+
+.welcome-text5 button {
     z-index: 2000;
     background-color: transparent;
     color: #00d9ff;
@@ -98,13 +161,16 @@ body {
     cursor: pointer;
     font-weight: 700;
     font-size: 30px;
-
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
 }
 
 /* categories section*/
 
 .categories {
-    background: #f5f5f5;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -296,31 +362,31 @@ body {
     padding: 60px 20px;
     max-width: 1250px;
     margin: 0 auto;
-  }
-  
-  .typed-out {
+}
+
+.typed-out {
     overflow: hidden;
     border-right: .15em solid black;
     white-space: nowrap;
     animation: typing 2s forwards;
     font-size: 3.5rem;
     margin-bottom: 40px;
-  }
+}
 
-  .typing span {
+.typing span {
     color: #00d9ff;
-  }
-  
-  @keyframes typing {
+}
+
+@keyframes typing {
     from {
-      width: 0
+    width: 0
     }
-  
+
     to {
-      width: 100%;
-      border-right: hidden;
+    width: 100%;
+    border-right: hidden;
     }
-  }
+}
 
 .about-us{
     width: 100%;
@@ -354,55 +420,55 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-  }
-  
-  .team-main {
+}
+
+.team-main {
     width: 300px;
     height: 400px;
     padding: 50px 30px;
     margin: 20px;
-  }
-  
-  .team-content {
+}
+
+.team-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-  .pic {
+}
+.pic {
     border-radius: 100%;
     width: 180px;
     height: 180px;
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
-  }
-  .pic img{
+}
+.pic img{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  .team-content-box h3{
+}
+.team-content-box h3{
     color: #00d9ff;
     font-size: 1.5em;
     text-align: center;
-  }
+}
 
-  .team-content-box h3:hover{
+.team-content-box h3:hover{
     color: #00accb;
     transition: 0.2s ease-in;
     font-size: 2em;
-  }
-  .team-content-box h4 {
+}
+.team-content-box h4 {
     font-weight: bold;
-  }
+}
 
 @media only screen and (max-width: 768px) {
     .typed-out {
-      font-size: 2em;
+    font-size: 2em;
     }
 }
 
