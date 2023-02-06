@@ -70,32 +70,38 @@ body {
     flex-direction: column;
     align-items: flex-start;
     background-position: scroll;
+    background-color: #fafafa;
 }
 
 .welcome-text{
     overflow: hidden;
-    border-right: .15em solid black;
+    border-right: .15em solid transparent;
     white-space: nowrap;
-    animation: typing 10s forwards;
-    margin-bottom: 40px;
+    letter-spacing: .10em;
+    animation: typing 3s steps(60, end),
+    blink-caret .45s step-end infinite;
+    margin-bottom: 35px;
 }
 
 .welcome-text h1 {
     text-align: left;
     font-size: 30px;
     color: #000000;
-    @keyframes typing {
+    @keyframes welcome-text {
         from {width: 0}
         to {width: 100%}
     }
+    
 }
 
 .welcome-text2 {
     overflow: hidden;
-    border-right: .15em solid black;
+    border-right: .15em solid transparent;
     white-space: nowrap;
-    animation: typing 15s backwards;
-    margin-bottom: 40px;
+    letter-spacing: .10em;
+    animation: typing 4s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
 }
 
 .welcome-text2 h2 {
@@ -109,10 +115,12 @@ body {
 
 .welcome-text3{
     overflow: hidden;
-    border-right: .15em solid black;
+    border-right: .15em solid transparent;
     white-space: nowrap;
-    animation: typing 10s forwards;
-    margin-bottom: 40px;
+    letter-spacing: .10em;
+    animation: typing 5s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
 }
 
 .welcome-text3 h1 {
@@ -127,10 +135,12 @@ body {
 
 .welcome-text4{
     overflow: hidden;
-    border-right: .15em solid black;
+    border-right: .15em solid transparent;
     white-space: nowrap;
-    animation: typing 10s forwards;
-    margin-bottom: 40px;
+    letter-spacing: .10em;
+    animation: typing 6s steps(45, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
 }
 
 .welcome-text4 h1 {
@@ -145,10 +155,12 @@ body {
 
 .welcome-text5 {
     overflow: hidden;
-    border-right: .15em solid black;
+    border-right: .15em solid transparent;
     white-space: nowrap;
-    animation: typing 10s forwards;
-    margin-bottom: 40px;
+    letter-spacing: .10em;
+    animation: typing 7s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
 }
 
 .welcome-text5 button {
@@ -170,7 +182,7 @@ body {
 /* categories section*/
 
 .categories {
-    background: #ffffff;
+    background: #fafafa;
     display: flex;
     flex-direction: column;
     align-items: center;
