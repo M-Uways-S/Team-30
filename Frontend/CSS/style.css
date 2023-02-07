@@ -13,7 +13,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
+    padding: 20px 10px;
     background: #dffdff;
     box-shadow: 0 5px rgba(0, 0, 0, 0.06);
     z-index: 999;
@@ -30,13 +30,13 @@ body {
 
 #navbar li {
     list-style: none;
-    padding: 0% 35px;
+    padding: 0% 20px;
     position: relative;
 }
 
 #navbar li a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     color: #1a1a1a;
     transition: 0.3s ease;
@@ -55,40 +55,115 @@ body {
     background: #00d9ff;
     position: absolute;
     bottom: -6px;
-    left: 30px;
+    left: 18px;
 }
 
 /*first picture/section styles*/
 
 #welcome-header {
     background: url('/media/welcome-pic.jfif') ;
-    background-attachment: fixed;
-    background-position: center;
-    height: 85vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 25% right 0;
-    padding: 0 80px;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 80px 80px 80px 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    background-position: scroll;
+    background-color: #fafafa;
 }
 
-#welcome-header h4 {
-    padding-bottom: 15px;
+.welcome-text{
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    letter-spacing: .10em;
+    animation: typing 3s steps(60, end),
+    blink-caret .45s step-end infinite;
+    margin-bottom: 35px;
 }
 
-#welcome-header h2 {
+.welcome-text h1 {
+    text-align: left;
+    font-size: 30px;
     color: #000000;
-    font-size: 40px;
+    @keyframes welcome-text {
+        from {width: 0}
+        to {width: 100%}
+    }
+    
 }
 
-#welcome-header h1 {
+.welcome-text2 {
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    letter-spacing: .10em;
+    animation: typing 4s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
+}
+
+.welcome-text2 h2 {
+    color: #00d9ff;
+    font-size: 60px;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
+}
+
+.welcome-text3{
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    letter-spacing: .10em;
+    animation: typing 5s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
+}
+
+.welcome-text3 h1 {
+    text-align: left;
+    font-size: 30px;
     color: #000000;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
 }
 
-#welcome-header button {
+.welcome-text4{
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    letter-spacing: .10em;
+    animation: typing 6s steps(45, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
+}
+
+.welcome-text4 h1 {
+    text-align: left;
+    font-size: 30px;
+    color: #000000;
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
+}
+
+.welcome-text5 {
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap;
+    letter-spacing: .10em;
+    animation: typing 7s steps(24, end),
+    blink-caret .45s infinite;
+    margin-bottom: 35px;
+}
+
+.welcome-text5 button {
     z-index: 2000;
     background-color: transparent;
     color: #00d9ff;
@@ -98,20 +173,24 @@ body {
     cursor: pointer;
     font-weight: 700;
     font-size: 30px;
-
+    @keyframes typing {
+        from {width: 0}
+        to {width: 100%}
+    }
 }
 
 /* categories section*/
 
 .categories {
-    background: #f5f5f5;
+    background: #fafafa;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 95vh;
 }
 
 .categories h1 {
+    padding-top: 25px;
     background-color: #00d9ff;
     background-image: linear-gradient(
     to right,
@@ -122,7 +201,6 @@ body {
     #2cdfff 78%,
     #00d9ff 100%
     );
-
     background-size: 100%;
     margin-bottom: 4rem;
     font-size: 2.5rem;
@@ -140,39 +218,73 @@ body {
 
 .categories__card {
     margin: 1rem;
-    height: 400px;
-    width: 300px;
+    height: 350px;
+    width: 250px;
+    top: -50px;
     border-radius: 4px;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
         #dffdff 100%
     ),
-    url("/media/G-phonez\ logo.png");
+    url("/media/phones-cat.png");
     background-size: cover;
     position: relative;
     color: #fff;
 }
 
 .categories__card:nth-child(2) {
+    background-position: center;
     background-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
         #dffdff 100%
     ),
-    url("/media/G-phonez\ logo.png");
+    url("/media/cables-cat.png");
+}
+
+.categories__card:nth-child(3) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/charging-brick-cat.png");
+}
+
+.categories__card:nth-child(4) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/case-cat.png");
+}
+
+.categories__card:nth-child(5) {
+    background-position: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        #dffdff 100%
+    ),
+    url("/media/mount-cat.png");
 }
 
 .categories h2 {
     position: absolute;
-    top: 350px;
-    left: 30px;
+    top: 320px;
+    left: 0px;
+    color:#000000;
 }
 
 .categories__card p {
     position: absolute;
-    top: 400px;
-    left: 30px;
+    top: 350px;
+    left: 0px;
+    color:#00d9ff;
 }
 
 .categories__card a {
@@ -181,17 +293,17 @@ body {
     border: none;
     outline: none;
     border-radius: 4px;
-    background-color: #f77062;
+    background-color: #81ecff;
     position: absolute;
-    top: 440px;
-    left: 30px;
+    top: 390px;
+    left: 0px;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .categories__card:hover {
-    transform: scale(1.075);
-    transition: 0.2s ease-in;
+    transform: scale(1.3);
+    transition: 0.4s ease-in;
     cursor: pointer;
 }
 
@@ -262,31 +374,31 @@ body {
     padding: 60px 20px;
     max-width: 1250px;
     margin: 0 auto;
-  }
-  
-  .typed-out {
+}
+
+.typed-out {
     overflow: hidden;
     border-right: .15em solid black;
     white-space: nowrap;
     animation: typing 2s forwards;
     font-size: 3.5rem;
     margin-bottom: 40px;
-  }
+}
 
-  .typing span {
-    color: #c8ebed;
-  }
-  
-  @keyframes typing {
+.typing span {
+    color: #00d9ff;
+}
+
+@keyframes typing {
     from {
-      width: 0
+    width: 0
     }
-  
+
     to {
-      width: 100%;
-      border-right: hidden;
+    width: 100%;
+    border-right: hidden;
     }
-  }
+}
 
 .about-us{
     width: 100%;
@@ -328,9 +440,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-  }
-  
-  .team-main {
+}
+
+.team-main {
     width: 300px;
     height: 400px;
     padding: 50px 30px;
@@ -342,40 +454,41 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-  .pic {
+}
+.pic {
     border-radius: 100%;
     width: 180px;
     height: 180px;
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
-  }
-  .pic img{
+}
+.pic img{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  .team-content-box h3{
+}
+.team-content-box h3{
     color: #00d9ff;
     font-size: 1.5em;
     text-align: center;
-  }
+}
 
-  .team-content-box h3:hover{
+.team-content-box h3:hover{
     color: #00accb;
+    transition: 0.2s ease-in;
     font-size: 2em;
-  }
-  .team-content-box h4 {
+}
+.team-content-box h4 {
     font-weight: bold;
-  }
+}
 
 @media only screen and (max-width: 768px) {
     .typed-out {
-      font-size: 2em;
+    font-size: 2em;
     }
 }
 
