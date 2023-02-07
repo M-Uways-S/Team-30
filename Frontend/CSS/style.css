@@ -310,6 +310,14 @@ body {
 .text p {
     letter-spacing: 1px;
 }
+.text2 h2 {
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.text2 p {
+    letter-spacing: 1px;
+}
 .picture {
     height: auto;
     width: 500px;
@@ -326,7 +334,7 @@ body {
     width: 300px;
     height: 400px;
     padding: 50px 30px;
-    margin: 20px;
+    margin: 2px;
   }
   
   .team-content {
@@ -377,3 +385,175 @@ body {
     }
 }
 /*contact-us page*/
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .contact-main {
+    width: 350px;
+    height: 400px;
+    padding: 50px 50px;
+    margin: 10px;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .pic {
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .contact-content-box h3{
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .contact-content-box h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .contact {
+    padding: 60px 20px;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+  
+  .contact-form h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contact-form p {
+    text-align: center;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .content form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  
+  form .input-box span.details {
+    display: block;
+    font-weight: 550;
+    margin-bottom: 4px;
+  }
+  
+  .user-details .input-box input {
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.2s ease;
+  }
+  
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid {
+    border-color: #27ffff;
+  }
+  
+  form .Priority-rating .priority-title {
+    font-size: 20px;
+    font-weight: 550;
+  }
+  
+  form .category {
+    display: flex;
+    width: 100%;
+    margin: 14px 0;
+    justify-content: space-between;
+  }
+  
+  form .category label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  form .category label .dot {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #000000;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  form label:hover {
+    color: #00d9ff;
+    cursor: pointer;
+  }
+  
+  form input[type="radio"] {
+    display: none;
+  }
+  
+  form .button {
+    height: 50px;
+    margin: 40px 0
+  }
+  
+  form textarea {
+    resize: none;
+    width: 100%;
+    padding: 17px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background: #e2e2e2;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.7rem;
+    border-radius: 10px;
+  }
+  
+  form .button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #007bff;
+  }
+  
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  

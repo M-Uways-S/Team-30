@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="/Frontend/home.js">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/65a27d019d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="nav">
+        <a href=home.html><img src="/media/G-phonez logo.png" width="200" height="120" class="logo"
+                alt="Company logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/Frontend/home.html">Home</a></li>
+                <li><a href="/Frontend/about-us.html">About Us</a></li>
+                <li><a href="login.html">Login/Sign-Up</a></li>
+                <li><a class="active" href="/Frontend/contact-us.html">Contact Us</a></li>
+                <li><a href="/Frontend/shop.html">Shop</a></li>
+                <li><a href="/Frontend/basket.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="/Frontend/myorders.html">My orders</a></li>
+            </ul>
+        </div>
+    </section>
+</body>
+
+<section class="contact">
+    <div class="contact-form">
+        <h1>How can we help?</h1>
+        <p>Contact us through one of our customer service lines provided below. <br>
+            Alternatively, fill out the form below and allow one of our team to contact you back.<br>
+            Below a range of FAQ (Frequently Asked Questions) are provided.
+        </p>
+
+        <contact-display>
+            <div class="contact-container">
+                <div class="contact-main">
+                    <div class="contact-content">
+                        <div class="pic">
+                            <img src="/media/icon-location.png">
+                        </div>
+                        <div class="contact-content-box">
+                            <h3 class="title">Address</h3>
+                            <h4>Speak to our team in person?</h4>
+                            <h5>
+                                <li>One Colmore Row</li>
+                                <li>Birmingham</li>
+                                <li>B3 2BJ</li>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-main">
+                    <div class="contact-content">
+                        <div class="pic">
+                            <img src="/media/icon-phone.png">
+                        </div>
+                        <div class="contact-content-box">
+                            <h3 class="title">Phone</h3>
+                            <h4>Contact us by phone?</h4>
+                            <h5>
+                                <li>(+44) 07486603522</li>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-main">
+                    <div class="contact-content">
+                        <div class="pic">
+                            <img src="/media/icon-email.png">
+                        </div>
+                        <div class="contact-content-box">
+                            <h3 class="title">Email</h3>
+                            <h4>Prefer to contact us by email?</h4>
+                            <h5>
+                                <li>Email: GPhonezSupport@gmail.com</li>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </contact-display>
+
+        <section class="contact">
+            <div class="contact-form">
+                <form action="POST">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">First name</span>
+                            <input type="text" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Second name</span>
+                            <input type="text" placeholder="Enter your second name" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Phone Number</span>
+                            <input type="text" placeholder="Enter your number" required>
+                        </div>
+                    </div>
+                    <span class="priority-title">Select the appropriate category:</span>
+                    <select name="Category" id="Category">
+                        <option value="">Please choose a topic...</option>
+                        <option value="1">Order enquiry</option>
+                        <option value="2">Product enquiry</option>
+                        <option value="3">Administration</option>
+                        <option value="4">Job vacancies</option>
+                        <option value="1">Other</option>
+                    </select>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Your message..." required> </textarea>
+                    <div class="button">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+      </div>
+</section>
+
+<div class="footer">
+    <div class="useful-links">
+        <h3>Useful Links</h3>
+        <a href="/Frontend/about-us.html">About Us</a>
+        <a href="/Frontend/contact-us.html">Contact Us</a>
+        <a href="/Frontend/login.html">Login</a>
+        <a href="/Frontend/sign-up.html">Sign-Up</a>
+        <a href="/Frontend/shop.html">Shop</a>
+    </div>
+    <div class="newsletter">
+        <h3>Subscribe to our monthly newsletter!</h3>
+        <form>
+            <input type="email" placeholder="Your Email Address" required>
+            <br>
+            <button type="Submit"> Subscribe now!</button>
+        </form>
+    </div>
+    <div class="contact-us">
+        <h3>Contact us</h3>
+        <p>
+            Email: G+phonezsupport@gmail.com
+            <br>
+            <br>
+            Phone: 0800 111 222
+            <br>
+            <br>
+            <a
+                href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D"><i
+                    class="fa-brands fa-twitter"></i></a>
+            <a href="https://en-gb.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/home"><i class="fa-brands fa-linkedin"></i></a>
+        </p>
+    </div>
+</div>
+
+</html>
