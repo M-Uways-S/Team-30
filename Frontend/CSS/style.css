@@ -783,3 +783,65 @@ body {
     width: 100%;
   }
   
+  /* CSS for the Shop Page*/
+
+  .Shop-Page{
+    text-align: center;
+  }
+
+  .shop-message {
+    text-align: center;
+  }
+
+  .Add2Basket {
+    background-color: #4CAF50;
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+}
+/*CSS for the products */
+.Products-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+    
+    .ProductS {
+    width: 300px;
+    height: 400px;
+    padding: 50px 30px;
+    margin: 2px;
+    }
+    
+    .Products4Sale{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+    .pic {
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+    }
+    
+    /* set the width and height of the .pic element to be the same value */
+    
+    
+    .pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    }
+
+    /*CSS for basket table*/
+    table, th, td {
+        border:1px solid black;
+    }
