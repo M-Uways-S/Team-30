@@ -727,3 +727,8 @@ body {
     height: 100%;
     
     }
+
+    /*CSS for basket table*/
+    table, th, td {
+        border:1px solid black;
+    }
