@@ -181,64 +181,65 @@ body {
 
 /* section on tabs*/
 
-.section-p1 {
+.section-box-feats {
     padding: 40px 80px;
+    background-color: #fafafa;
 }
 
-#feature {
+#box-feats {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-#feature .fe-box {
+#box-feats .boxes {
     width: 180px;
     text-align: center;
     padding: 25px 15px;
-    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.06);
-    border: 1px solid #cce7d0;
+    box-shadow: 20px 20px 34px #0000000f;
+    border: 1px solid #00d9ff;
     border-radius: 8px;
     margin: 15px 0;
 }
 
-#feature .fe-box:hover {
-    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+#box-feats .boxes:hover {
+    box-shadow: 10px 10px 54px #00accb;
 }
 
-#feature .fe-box img {
+#box-feats .boxes img {
     width: 100%;
     margin-bottom: 10px;
 }
 
-#feature .fe-box h6 {
+#box-feats .boxes h6 {
     display: inline-block;
     padding: 9px 8px 6px 8px;
     line-height: 1;
     border-radius: 4px;
-    color: #189165;
-    background-color: #fddde4;
+    color: #000000;
+    background-color: #81ecff;
 
 }
 
-#feature .fe-box:nth-child(2) h6 {
-    background-color: #fddde4;
+#box-feats .boxes:nth-child(2) h6 {
+    background-color: #81ecff;
 }
 
-#feature .fe-box:nth-child(3) h6 {
-    background-color: #fddde4;
+#box-feats .boxes:nth-child(3) h6 {
+    background-color: #81ecff;
 }
 
-#feature .fe-box:nth-child(4) h6 {
-    background-color: #fddde4;
+#box-feats .boxes:nth-child(4) h6 {
+    background-color: #81ecff;
 }
 
-#feature .fe-box:nth-child(5) h6 {
-    background-color: #fddde4;
+#box-feats .boxes:nth-child(5) h6 {
+    background-color: #81ecff;
 }
 
-#feature .fe-box:nth-child(6) h6 {
-    background-color: #fddde4;
+#box-feats .boxes:nth-child(6) h6 {
+    background-color: #81ecff;
 }
 
 /* categories section*/
@@ -370,10 +371,13 @@ body {
 }
 
 /* review section*/
+
 .reviews {
     position: center;
-    padding: 50px 100px 50px 50px;
+    padding: 50px 75px 50px 75px;
+    background-color: #fafafa;
 }
+
 .reviews h1 {
     display: flex;
     justify-content: center;
@@ -396,6 +400,7 @@ body {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+
 .flip-card-container {
     text-align: center; 
 }
@@ -451,9 +456,7 @@ color:#000000;
 
 
 /*average user rating part */
-
-
-.heading {
+.row-heading-text {
     font-size: 25px;
     margin-right: 25px;
 }
@@ -466,7 +469,6 @@ color:#000000;
     color: orange;
 }
 
-  /* Three column layout */
 .side {
     float: left;
     width: 15%;
@@ -479,12 +481,11 @@ color:#000000;
     margin-top: 10px;
 }
 
-  /* Place text to the right */
 .right {
     text-align: center;
 }
 
-.row:after {
+.rows:after {
     content: "";
     display: table;
     clear: both;
@@ -502,17 +503,6 @@ color:#000000;
 .bar-3 {width: 30%; height: 18px; background-color: #00d9ff;}
 .bar-2 {width: 0.1%; height: 18px; background-color: #81ecff;}
 .bar-1 {width: 0.1%; height: 18px; background-color: #bcf5ff;}
-
-  /* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-    .side, .middle {
-    width: 100%;
-    }
-    /* Hide the right column on small screens */
-    .right {
-    display: none;
-    }
-}
 
 /*footer styles*/
 .footer {
