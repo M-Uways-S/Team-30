@@ -454,6 +454,106 @@ color:#000000;
 color:#000000;
 }
 
+/*Log-in & Sign-up*/
+
+.form-container{
+    width: 500px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    margin: 100px auto;
+}
+
+.form-header{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h2{
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-header p{
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.form-group{
+    margin-bottom: 25px;
+}
+
+.form-group label{
+    font-size: 16px;
+    color: #777;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.form-group input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover{
+    background-color: #777;
+}
+
+.form-switch{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-switch a{
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.password-requirements {
+  text-align: center;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔️";
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "❌";
+}
 
 /*average user rating part */
 .row-heading-text {
@@ -842,7 +942,7 @@ color:#000000;
     border: none;
     outline: none;
     font-size: 1.1rem;
-    background: #e2e2e2;
+    background: #faf9f9;
     color: rgb(0, 0, 0);
     margin-bottom: 0.7rem;
     border-radius: 10px;
