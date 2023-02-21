@@ -929,3 +929,11 @@ color:#000000;
     table, th, td {
         border:1px solid black;
     }
+
+    .YourOrders {
+        text-align: center;
+    }
+
+    .YourBasket {
+        text-align: center;
+    }
