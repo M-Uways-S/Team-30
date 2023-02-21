@@ -1,0 +1,13 @@
+2023-02-17 14:12:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ROLES (ID, NAME) VALUES
+(1, 'ROLE_ADMIN'),
+(2, 'ROLE_USER'),[*]"; expected "ROW, (, DEFAULT, NOT, EXISTS, INTERSECTS, UNIQUE"; SQL statement:
+INSERT INTO roles (id, name) VALUES
+(1, 'ROLE_ADMIN'),
+(2, 'ROLE_USER'), [42001-200]
+2023-02-19 16:43:23 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "USER_ROLE[*]"; expected "UPDATE, USE"; SQL statement:
+USER_ROLE [42001-200]
+2023-02-21 14:01:35 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM CATEGORY ROLES USERS[*]"; SQL statement:
+SELECT * FROM CATEGORY ROLES USERS [42000-200]
