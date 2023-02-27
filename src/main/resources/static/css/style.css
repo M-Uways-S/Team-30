@@ -612,7 +612,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../images/banner-bot.jpg) no-repeat center;
+    background: url(../images/banner2-bot.jpg) no-repeat center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -624,12 +624,12 @@ body{
 }
 
 .bottom-hero .content h3{
-    color:var(--black);
+    color:#ffffff;
     font-size: 3rem;
 }
 
 .bottom-hero .content p{
-    color:var(--black);
+    color:#ffffff;
     font-size: 1.7rem;
     padding:1rem 0;
     line-height: 1.8;
