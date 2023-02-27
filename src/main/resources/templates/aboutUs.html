@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About-Us Page-page</title>
+
+  <!-- swiper link -->
+  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+  <!-- font awesome link link -->
+  <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+  <!-- custom css link -->
+  <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+  <!-- boxicons CSS -->
+  <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+  <!-- custom scripts CSS -->
+  <script th:src="@{https://kit.fontawesome.com/a076d05399.js}" crossorigin="anonymous"></script>
+  <script th:src="@{https://code.jquery.com/jquery-3.5.1.slim.min.js}"></script>
+  <script th:src="@{https://cdn.jsdelivr.net/npm/popper.js/dist/umd/popper.min.js}"></script>
+  <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+  <script th:src="@{https://kit.fontawesome.com/65a27d019d.js}" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- header start -->
+
+<header class="header">
+  <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+  <nav class="navbar">
+    <a th:href="@{/}" href="#">Home</a>
+    <a th:href="@{/shop}" href="#">Shop</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+    <a th:href="@{/aboutUs}" href="#">About Us</a>
+    <a th:href="@{/contactUs}" href="#">Contact Us</a>
+  </nav>
+  <div class="icons">
+    <div class="fas fa-bars" id="menu-btn"></div>
+    <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
+    <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
+    <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
+    <span class="nav-link" th:text="${cartCount}">0</span>
+  </div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- header end -->
+
+<section class="about-us">
+  <div class="typing">
+    <div class="typed-out">
+      Meet the <span>G-Phonez</span> team...
+    </div>
+    <div class="about">
+      <img th:src="@{/images/about-us.PNG}" class="picture">
+      <div class="text">
+        <h2>Who are we?</h2>
+        <p>The team behind G-Phonez is a group of university students studying at Aston University undertaking BSc Computer Science/BSc Cyber Security degrees.
+          <br> <br> This second term we have been tasked with creating a website
+          for our own brand with front end technologies and a Java framework for the backend inventory management system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<Team-profiles>
+  <div class="profile-container">
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Uways</h3>
+          <h4>Lead front end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Brayden</h3>
+          <h4>Front end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Dawud</h3>
+          <h4>Front end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Awan</h3>
+          <h4>Front end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Jacob</h3>
+          <h4>Lead back end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Kess</h3>
+          <h4>Back end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Faisal</h3>
+          <h4>Back end developer</h4>
+        </div>
+      </div>
+    </div>
+    <div class="team-main">
+      <div class="team-content">
+        <div class="pic">
+          <img th:src="@{/images/icon.png}">
+        </div>
+        <div class="team-content-box">
+          <h3 class="title">Mustafa</h3>
+          <h4>Backend developer</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</Team-profiles>
+
+
+<section class="about-us">
+  <div class="about">
+    <img th:src="@{/images/location.png}" class="picture">
+    <div class="text2">
+      <h2>OUR HEADQUARTERS</h2>
+      <p>Our main offices are located right in the heart of the city centre!
+        <br><br>One Colmore Row
+        <br>Birmingham
+        <br>B3 2BJ <br><br>
+        We offer free on-site parking 24/7 for employees & clients.
+
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- footer start -->
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3> G+Phonez </h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+      <div class="share">
+        <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
+        <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
+        <a th:href="@{https://www.instagram.com/}" href="#" class="fab fa-instagram"></a>
+        <a th:href="@{https://www.linkedin.com/feed/}" href="#" class="fab fa-linkedin"></a>
+      </div>
+    </div>
+    <div class="box">
+      <h3>contact info</h3>
+      <a href="#" class="links"> <i class="fas fa-phone"></i> +0800 111 222 </a>
+      <a href="#" class="links"> <i class="fas fa-phone"></i> +1111 222 333 </a>
+      <a href="#" class="links"> <i class="fas fa-envelope"></i> g+phonezsupport@gmail.com </a>
+      <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> birmingham, united kingdom </a>
+    </div>
+    <div class="box">
+      <h3>quick links</h3>
+      <a th:href="@{/}" href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+      <a th:href="@{/shop}" href="#" class="links"> <i class="fas fa-arrow-right"></i> shop </a>
+      <a th:href="@{/aboutUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
+      <a th:href="@{/contactUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
+    </div>
+  </div>
+  <div class="credit"> created by <span> Group30 </span> | Aston University</div>
+</section>
+
+<!-- footer end -->
+
+<!-- script links bundle -->
+<script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/popper.js/dist/umd/popper.min.js}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js}" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<!-- swiper bundle -->
+<script th:src="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js}"></script>
+
+<!-- custom js file link  -->
+<script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+
+</body>
+</html>
