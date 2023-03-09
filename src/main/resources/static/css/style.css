@@ -182,7 +182,7 @@ body{
     }
 }
 
-/*Uways*/
+/*animation text */
 
 .welcome-text{
     overflow: hidden;
@@ -260,7 +260,7 @@ body{
     to {width: 100%}
 }
 
-/*Uways*/
+/*animation text */
 
 /*section on tabs*/
 
@@ -327,126 +327,6 @@ body{
 
 /*section on tabs*/
 
-/*categories section
-
-.categories {
-    background: #fafafa;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 5rem;
-}
-
-.categories__container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 1rem;
-}
-
-.categories__card {
-    margin: 1rem;
-    height: 350px;
-    width: 225px;
-    top: -50px;
-    border-radius: 4px;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 0%,
-            #dffdff 100%
-    ),
-    url(../images/phones-cat.png);
-    background-size: cover;
-    position: relative;
-    color: #fff;
-}
-
-.categories__card:nth-child(2) {
-    background-position: center;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 0%,
-            #dffdff 100%
-    ),
-    url(../images/cables-cat.png);
-}
-
-.categories__card:nth-child(3) {
-    background-position: center;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 0%,
-            #dffdff 100%
-    ),
-    url(../images/charging-brick-cat.png);
-}
-
-.categories__card:nth-child(4) {
-    background-position: center;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 0%,
-            #dffdff 100%
-    ),
-    url(../images/case-cat.png);
-}
-
-.categories__card:nth-child(5) {
-    background-position: center;
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0) 0%,
-            #dffdff 100%
-    ),
-    url(../images/mount-cat.png);
-}
-
-.categories h2 {
-    position: absolute;
-    top: 320px;
-    left: 0px;
-    color:#000000;
-}
-
-.categories__card p {
-    position: absolute;
-    top: 350px;
-    left: 0px;
-    color:#00d9ff;
-}
-
-.categories__card a {
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    background-color: #81ecff;
-    position: absolute;
-    top: 390px;
-    left: 0px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.categories__card:hover {
-    transform: scale(1.3);
-    transition: 0.4s ease-in;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .categories__container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .categories__card {
-        width: auto;
-        margin: 10px 20px;
-    }
-}
-*/
 /*categories section test*/
 
 .categories1 {
