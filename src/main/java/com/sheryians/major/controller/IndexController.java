@@ -1,25 +1,23 @@
 package com.sheryians.major.controller;
 
-import com.example.backend.form.UserRepo;
+import com.sheryians.major.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import com.example.backend.form.model.Userdata;
-
+import com.sheryians.major.model.Userdata;
 
 @Controller
 public class IndexController {
     @Autowired
     private UserRepo Userrepo;
-    @GetMapping("/")
-    public String index() {
+    // @GetMapping("/")
+    // public String index() {
 
-        return "Contactus";
-    }
+    // return "contactUs";
+    // }
 
     @PostMapping("/REGISTER")
     public String userRegistration(@ModelAttribute Userdata userdata, Model model) {
@@ -31,7 +29,7 @@ public class IndexController {
         System.out.println(userdata.getEmail());
         System.out.println(userdata.getCategory());
         System.out.println(userdata.getTexta());
-        Userdata user_inserted= Userrepo.save(userdata);
-        return "Contactus";
+        Userdata user_inserted = Userrepo.save(userdata);
+        return "contactUs";
     }
 }

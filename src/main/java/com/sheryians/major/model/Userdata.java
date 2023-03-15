@@ -1,5 +1,6 @@
+package com.sheryians.major.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;;
 
 @Entity
 @Table(name = "USERDATA")
@@ -10,7 +11,7 @@ public class Userdata {
     @Column(name = "numb")
     private int numb;
 
-@Column(name = "firstname")
+    @Column(name = "firstname")
     private String firstname;
     @Column(name = "secondname")
     private String secondname;
@@ -38,18 +39,23 @@ public class Userdata {
     public String getFirstname() {
         return firstname;
     }
+
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+
     public String getSecondname() {
         return secondname;
     }
+
     public void setSecondname(String secondname) {
         this.secondname = secondname;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -65,6 +71,7 @@ public class Userdata {
     public String getCategory() {
         return category;
     }
+
     public void setCategory(String category) {
         this.category = category;
     }
