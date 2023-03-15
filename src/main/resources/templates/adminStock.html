@@ -58,46 +58,76 @@
 
     <!-- header end -->
 
-<div class="jumbotron text-center">
-    <h1 class="display-4">Welcome back, Admin</h1>
-    <p>Easily manage your data from this admin <mark>CMS</mark></p>
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 pt-3" >
-            <div class="card" style="background-color:white;">
-                <div class="card-body">
-                    <h4 class="card-title">Categories</h4>
-                    <p class="card-text">Manage the categories section here.</p>
-                    <a href="#" th:href="@{/admin/categories}" class="btn">Manage</a>
 
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 pt-3" >
-            <div class="card" style="background-color:white;">
-                <div class="card-body">
-                    <h4 class="card-title">Products</h4>
-                    <p class="card-text">Add or remove products here.</p>
-                    <a href="#" th:href="@{/admin/products}" class="btn">Manage</a>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-3 pt-3" >
-            <div class="card" style="background-color:white;">
-                <div class="card-body">
-                    <h4 class="card-title">Stock And Orders</h4>
-                    <p class="card-text">Analyse stock and past customer orders.</p>
-                    <a href="#" th:href="@{/admin/orders}" class="btn">Manage</a>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
+    <body>
+        <section id="admin-list-customer" class="section-p1">
+            <table width=auto>
+                <h2>Customer List</h2>
+                <thead>
+                    <tr>
+                        <td>Username</td>
+                        <td>Email</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        for user in users
+                        <td>user.username</td>
+                        <td>user.email</td>
+                    </tr>
+                    endfor 
+                </tbody>
+            </table>
+        </section>
+    
+        
+        <section id="admin-order-placed" class="section-p1">
+            <table width=auto>
+                <h2>Currently Placed Orders</h2>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Email</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Size</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    for order in orders
+                    <tr>
+                        <td>order.date</td>
+                        <td>order.user.email</td>
+                        <td>order.name</td>
+                        <td>order.price</td>
+                        <td>order.quantity</td>
+                        <td>order.size</td>
+                        endfor
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+        <section id="admin-items-stock" class="section-p1">
+            <table width=auto>
+                <h2>Items In Stock</h2>
+                <thead>
+                    
+                    <tr>
+                        <td>Product</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    for items in item %
+                    <tr>
+                        <td>items.name</td>
+                        <td>items.price</td>
+                    </tr>
+                    endfor
+                </tbody>
+            </table>
+        </section>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

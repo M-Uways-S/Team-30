@@ -943,6 +943,7 @@ body{
     padding: 60px 20px;
     max-width: 1250px;
     margin: 0 auto;
+    margin-top: 80px;
 }
 
 .typed-out {
@@ -950,7 +951,7 @@ body{
     border-right: .15em solid black;
     white-space: nowrap;
     animation: typing 2s forwards;
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     margin-bottom: 40px;
 }
 
@@ -972,8 +973,6 @@ body{
 .about-us{
     width: 100%;
     height: 80vh;
-    padding-top: 22.1rem;
-    padding-bottom: 13rem;
 }
 
 .about{
@@ -988,24 +987,32 @@ body{
 .text h2 {
     letter-spacing: 1px;
     margin-bottom: 20px;
+    font-size: 2.5rem;
 }
 
 .text p {
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
+    font-size: 1.8rem;
 }
 .text2 h2 {
     letter-spacing: 1px;
     margin-bottom: 50px;
+    font-size: 2.5rem;
 }
 
 .text2 p {
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
+    font-size: 1.8rem;
 }
 .picture {
     height: auto;
     width: 500px;
 }
-
+.picture2{
+    height: auto;
+    width: 500px;
+    padding: 20px 20px;
+}
 .profile-container {
     display: flex;
     justify-content: center;
@@ -1443,3 +1450,124 @@ form .user-details .input-box {
     }
 
 }
+
+/* styles for stock level and orders page */
+
+#admin-list-customer table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    
+    }
+    
+    #admin-list-customer table td:nth-child(1),
+    #admin-list-customer table td:nth-child(2),
+    #admin-list-customer table td:nth-child(3) {
+    width: 150px;
+    text-align: center;
+    }
+    
+    #admin-list-customer table td:nth-child(3) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+    }
+    
+    #admin-list-customer table thead {
+    border: 1px solid #2b9567;
+    border-left: none;
+    border-right: none;
+    }
+    
+    #admin-list-customer table thead td {
+    font-weight: 700;
+    font-size: 13px;
+    padding: 18px 0;
+    }
+    
+    #admin-list-customer table tbody tr td {
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 15px;
+    }
+    
+    /*styles for currently placed orders table on admin page*/
+    #admin-order-placed table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    
+    }
+    
+    #admin-order-placed table td:nth-child(1),
+    #admin-order-placed table td:nth-child(2),
+    #admin-order-placed table td:nth-child(3),
+    #admin-order-placed table td:nth-child(4),
+    #admin-order-placed table td:nth-child(5),
+    #admin-order-placed table td:nth-child(6) {
+    width: 150px;
+    text-align: center;
+    }
+    
+    #admin-order-placed table td:nth-child(3) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+    }
+    
+    #admin-order-placed table thead {
+    border: 1px solid #2b9567;
+    border-left: none;
+    border-right: none;
+    }
+    
+    #admin-order-placed table thead td {
+    font-weight: 700;
+    font-size: 13px;
+    padding: 18px 0;
+    }
+    
+    #admin-order-placed table tbody tr td {
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 15px;
+    }
+    
+    /*styles for items in stock table on admin page*/
+    #admin-items-stock table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    
+    }
+    
+    #admin-items-stock table td:nth-child(1),
+    #admin-items-stock table td:nth-child(2),
+    #admin-items-stock table td:nth-child(3) {
+    width: 150px;
+    text-align: center;
+    }
+    
+    #admin-items-stock table td:nth-child(3) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+    }
+    
+    #admin-items-stock table thead {
+    border: 1px solid #2b9567;
+    border-left: none;
+    border-right: none;
+    }
+    
+    #admin-items-stock table thead td {
+    font-weight: 700;
+    font-size: 13px;
+    padding: 18px 0;
+    }
+    
+    #admin-items-stock table tbody tr td {
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 15px;
+    }
