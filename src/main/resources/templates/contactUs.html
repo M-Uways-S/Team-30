@@ -125,9 +125,10 @@
     <section class="contact">
       <div class="contact-form">
         <h1>Contact form</h1>
-        <form action="@{/REGISTER}" method="post">
+        <form th:action="@{/REGISTER}" th:object="${user_data}" method="post">
           <div class="user-details">
             <div class="input-box">
+              <div class="form-group">
               <span class="details">First name</span>
               <input type="text" name="firstname" placeholder="Enter your first name" required>
             </div>
@@ -154,10 +155,9 @@
             <option value="5">Other</option>
           </select>
           <textarea name="texta" id="" cols="30" rows="10" placeholder="Tell us a little bit about your problem..." required> </textarea>
-          <div class="button">
-            <input type="submit" value="Submit">
-          </div>
+          <input type="submit" value="Submit">
         </form>
+        <a class="linkControl" href="login.html" th:href="@{/REGISTER}">Login here</a>
       </div>
     </section>
 

@@ -31,10 +31,12 @@ public class LoginController {
         GlobalData.cart.clear();
         return "login";
     }
+
     @GetMapping("/register")
     public String registerGet() {
-        return  "register";
+        return "register";
     }
+
     @PostMapping("/register")
     public String registerPost(@ModelAttribute("user") User user, HttpServletRequest request) throws ServletException {
         String password = user.getPassword();
