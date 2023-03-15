@@ -1,9 +1,12 @@
 package com.sheryians.major.controller;
 
+import com.sheryians.major.dto.OrderDTO;
 import com.sheryians.major.dto.ProductDTO;
 import com.sheryians.major.model.Category;
+import com.sheryians.major.model.Order;
 import com.sheryians.major.model.Product;
 import com.sheryians.major.service.CategoryService;
+import com.sheryians.major.service.OrderService;
 import com.sheryians.major.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,8 @@ public class AdminController {
     CategoryService categoryService;
     @Autowired
     ProductService productService;
+    @Autowired
+    OrderService orderService;
     @GetMapping("/admin")
     public String adminHome() {
         return "adminHome";
@@ -121,5 +126,37 @@ public class AdminController {
         model.addAttribute("productDTO", productDTO);
 
         return "productsAdd";
+    }
+
+    // Orders page
+
+    @GetMapping("/admin/orders")
+    public String getOrder(Model model) {
+        model.addAttribute("orders", orderService.getAllOrder());
+        return "orders";
+    }
+
+    @GetMapping("/admin/orders/add")
+    public String getOrderAdd(Model model) {
+        model.addAttribute("orderDTO", new OrderDTO());
+        return "ordersAdd";
+    }
+
+    @PostMapping("/admin/orders/add")
+    public String productAddPost(@ModelAttribute("orderDTO")OrderDTO orderDTO) throws IOException {
+        Order order = new Order();
+        order.setId(orderDTO.getId());
+        order.setPrice(orderDTO.getPrice());
+        order.setWeight(orderDTO.getWeight());
+        order.setProduct(orderDTO.getProduct());
+        order.setUser(orderDTO.getUser());
+        orderService.addOrder(order);
+        return "redirect:/admin/orders";
+    }
+
+    @GetMapping("/admin/orders/delete/{id}")
+    public String deleteOrder(@PathVariable Long id) {
+        orderService.removeOrderById(id);
+        return "redirect:/admin/orders";
     }
 }
