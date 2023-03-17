@@ -1453,121 +1453,145 @@ form .user-details .input-box {
 
 /* styles for stock level and orders page */
 
-#admin-list-customer table {
-    width: 100%;
+/* customer list table  */
+#ad-list-customer table {
+    width: 95%;
     border-collapse: collapse;
     table-layout: fixed;
     white-space: nowrap;
-    
+    align-items: center;
+    margin: 0 auto;
     }
     
-    #admin-list-customer table td:nth-child(1),
-    #admin-list-customer table td:nth-child(2),
-    #admin-list-customer table td:nth-child(3) {
+    #ad-list-customer table td:nth-child(1),
+    #ad-list-customer table td:nth-child(2),
+    #ad-list-customer table td:nth-child(3) {
     width: 150px;
     text-align: center;
     }
     
-    #admin-list-customer table td:nth-child(3) input {
+    #ad-list-customer table td:nth-child(3) input {
     width: 70px;
     padding: 10px 5px 10px 15px;
     }
     
-    #admin-list-customer table thead {
-    border: 1px solid #2b9567;
+    #ad-list-customer table thead {
+    border: 1px solid #00d9ff;
     border-left: none;
     border-right: none;
+    padding: 20px 20px 20px 20px;
     }
     
-    #admin-list-customer table thead td {
-    font-weight: 700;
+    #ad-list-customer table thead td {
+    font-weight: 600;
     font-size: 13px;
     padding: 18px 0;
     }
     
-    #admin-list-customer table tbody tr td {
+    #ad-list-customer table tbody tr td {
     font-weight: 500;
     font-size: 13px;
     padding-top: 15px;
     }
     
+    #ad-list-customer h2 {
+        text-align: center;
+        font-size: 30px;
+    }    
+    
+    /*current stock table*/
+    #admin-product-stock table {
+        width: 95%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    align-items: center;
+    margin: 0 auto;
+    }
+    
+    #admin-product-stock table td:nth-child(1),
+    #admin-product-stock table td:nth-child(2),
+    #admin-product-stock table td:nth-child(3) {
+    width: 150px;
+    text-align: center;
+    }
+    
+    #admin-product-stock table td:nth-child(3) input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+    }
+    
+    #admin-product-stock table thead {
+    border: 1px solid #00d9ff;
+    border-left: none;
+    border-right: none;
+    }
+    
+    #admin-product-stock table thead td {
+    font-weight: 700;
+    font-size: 13px;
+    padding: 18px 0;
+    }
+    
+    #admin-product-stock table tbody tr td {
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 15px;
+    }
+
+    #admin-product-stock h2 {
+        text-align: center;
+        font-size: 30px;
+    } 
+
     /*styles for currently placed orders table on admin page*/
-    #admin-order-placed table {
-    width: 100%;
+    #admin-currently-placed-orders table {
+    width: 95%;
     border-collapse: collapse;
     table-layout: fixed;
     white-space: nowrap;
-    
+    align-items: center;
+    margin: 0 auto;
     }
     
-    #admin-order-placed table td:nth-child(1),
-    #admin-order-placed table td:nth-child(2),
-    #admin-order-placed table td:nth-child(3),
-    #admin-order-placed table td:nth-child(4),
-    #admin-order-placed table td:nth-child(5),
-    #admin-order-placed table td:nth-child(6) {
+    #admin-currently-placed-orders table td:nth-child(1),
+    #admin-currently-placed-orders table td:nth-child(2),
+    #admin-currently-placed-orders table td:nth-child(3),
+    #admin-currently-placed-orders table td:nth-child(4),
+    #admin-currently-placed-orders table td:nth-child(5),
+    #admin-currently-placed-orders table td:nth-child(6) {
     width: 150px;
     text-align: center;
     }
     
-    #admin-order-placed table td:nth-child(3) input {
+    #admin-currently-placed-orders table td:nth-child(3) input {
     width: 70px;
     padding: 10px 5px 10px 15px;
     }
     
-    #admin-order-placed table thead {
-    border: 1px solid #2b9567;
+    #admin-currently-placed-orders table thead {
+    border: 1px solid #00d9ff;
     border-left: none;
     border-right: none;
     }
     
-    #admin-order-placed table thead td {
+    #admin-currently-placed-orders table thead td {
     font-weight: 700;
     font-size: 13px;
     padding: 18px 0;
     }
     
-    #admin-order-placed table tbody tr td {
+    #admin-currently-placed-orders table tbody tr td {
     font-weight: 500;
     font-size: 13px;
     padding-top: 15px;
     }
-    
-    /*styles for items in stock table on admin page*/
-    #admin-items-stock table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    white-space: nowrap;
-    
-    }
-    
-    #admin-items-stock table td:nth-child(1),
-    #admin-items-stock table td:nth-child(2),
-    #admin-items-stock table td:nth-child(3) {
-    width: 150px;
-    text-align: center;
-    }
-    
-    #admin-items-stock table td:nth-child(3) input {
-    width: 70px;
-    padding: 10px 5px 10px 15px;
-    }
-    
-    #admin-items-stock table thead {
-    border: 1px solid #2b9567;
-    border-left: none;
-    border-right: none;
-    }
-    
-    #admin-items-stock table thead td {
-    font-weight: 700;
-    font-size: 13px;
-    padding: 18px 0;
-    }
-    
-    #admin-items-stock table tbody tr td {
-    font-weight: 500;
-    font-size: 13px;
-    padding-top: 15px;
+
+    #admin-currently-placed-orders h2 {
+        text-align: center;
+        font-size: 30px;
+    } 
+
+    #ad-list-customer, #admin-product-stock, #admin-currently-placed-orders {
+        margin-bottom: 50px;
     }

@@ -60,27 +60,50 @@
 
 
     <body>
-        <section id="admin-list-customer" class="section-p1">
+        <section id="ad-list-customer" class="section-1">
             <table width=auto>
                 <h2>Customer List</h2>
                 <thead>
                     <tr>
-                        <td>Username</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
                         <td>Email</td>
                 </thead>
                 <tbody>
                     <tr>
-                        for user in users
-                        <td>user.username</td>
-                        <td>user.email</td>
-                    </tr>
-                    endfor 
+                        <td>First.Name</td>
+                        <td>Last.Name</td>
+                        <td>email@email.com</td>
+                    </tr> 
                 </tbody>
             </table>
         </section>
-    
+
+
+    <section id="admin-product-stock" class="section-p1">
+            <table width=auto>
+                <h2>Items In Stock</h2>
+                <thead>
+                    
+                    <tr>
+                        <td>Product Name</td>
+                        <td>Product Price</td>
+                        <td>Product Quantity</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product.name</td>
+                        <td>Product.price</td>
+                        <td>
+                            <input type="number" name="quantity" value="Product.Quantity" min="1" max="100" style="background-color: #f2f2f2; border: none; padding: 5px;" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
         
-        <section id="admin-order-placed" class="section-p1">
+        <section id="admin-currently-placed-orders" class="section-p1">
             <table width=auto>
                 <h2>Currently Placed Orders</h2>
                 <thead>
@@ -88,46 +111,30 @@
                         <td>Date</td>
                         <td>Email</td>
                         <td>Product</td>
-                        <td>Price</td>
+                        <td>Total</td>
                         <td>Quantity</td>
-                        <td>Size</td>
+                        <td>Status</td>
                     </tr>
                 </thead>
                 <tbody>
-                    for order in orders
                     <tr>
-                        <td>order.date</td>
-                        <td>order.user.email</td>
-                        <td>order.name</td>
-                        <td>order.price</td>
-                        <td>order.quantity</td>
-                        <td>order.size</td>
-                        endfor
+                        <td>Order.Date</td>
+                        <td>Order.Email</td>
+                        <td>Order.Name</td>
+                        <td>Order.Total</td>
+                        <td>Order.Quantity</td>
+                        <td><select class="form-control" name="orderStatus">
+                            <option th:value="PENDING" th:text="Pending" ></option>
+                            <option th:value="SHIPPED" th:text="Shipped" ></option>
+                            <option th:value="DELIVERED" th:text="Delivered" ></option>
+                            <option th:value="CANCELLED" th:text="Cancelled" ></option>
+                        </select></td>
                     </tr>
                 </tbody>
             </table>
         </section>
     
-        <section id="admin-items-stock" class="section-p1">
-            <table width=auto>
-                <h2>Items In Stock</h2>
-                <thead>
-                    
-                    <tr>
-                        <td>Product</td>
-                        <td>Price</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    for items in item %
-                    <tr>
-                        <td>items.name</td>
-                        <td>items.price</td>
-                    </tr>
-                    endfor
-                </tbody>
-            </table>
-        </section>
+        
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
