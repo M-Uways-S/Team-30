@@ -74,6 +74,11 @@ public class AdminController {
         return "adminStock";
     }
 
+    @GetMapping("/admin/CustomerFeedback")
+    public String CustomerFeedback() {
+        return "CustomerFeedback";
+    }
+
     @GetMapping("/admin/products/add")
     public String productAddGet(Model model) {
         model.addAttribute("productDTO", new ProductDTO());
