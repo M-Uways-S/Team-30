@@ -67,6 +67,7 @@
             <th scope="col">Stock</th>
             <th scope="col">Category</th>
             <th scope="col">Preview</th>
+            <th scope="col"></th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
         </tr>
@@ -79,10 +80,21 @@
             <td th:text="${product.weight}">Larry</td>
             <td th:text="${product.category.name}">Larry</td>
             <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
-
+            <td id="stockWarning"></td>
             <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
             <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
 
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+            
+                    var stock = /*[[${product.weight}]]*/ 'default';
+            
+                    if (stock < 10){
+                        document.getElementById("stockWarning").innerHTML = "LOW STOCK"
+                    }
+            
+                /*]]>*/
+            </script>
         </tr>
         </tbody>
     </table>
