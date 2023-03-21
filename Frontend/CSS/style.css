@@ -8,6 +8,8 @@
 body {
     width: 100%;
 }
+
+
 /*navbar styles*/
 #nav {
     display: flex;
@@ -26,6 +28,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 #navbar li {
