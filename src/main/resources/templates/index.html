@@ -72,6 +72,9 @@
     <!-- call to action hero section end -->
     <!-- box feats section start -->
 
+    <h1 sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Welcome , <span th:text="${firstName}"></span>!</h1>
+
+
     <h1 class="heading"> our <span>features</span> </h1>
     <section id="box-feats" class="section-box-feats">
         <div class="boxes">

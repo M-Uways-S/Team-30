@@ -3,11 +3,13 @@ package com.sheryians.major.controller;
 
 import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.Product;
+import com.sheryians.major.model.User;
 import com.sheryians.major.service.CategoryService;
 import com.sheryians.major.service.ProductService;
 import com.sheryians.major.service.ShopService;
 import org.apache.tomcat.jni.Global;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,10 +28,15 @@ public class HomeController {
     ShopService shopService;
 
     @GetMapping({"/", "/home"})
-    public String home(Model model) {
+    public String home(Model model, Authentication authentication) {
         model.addAttribute("cartCount", GlobalData.cart.size());
+        if (authentication != null && authentication.isAuthenticated()) {
+            User user = (User) authentication.getPrincipal();
+            model.addAttribute("firstName", user.getFirstName());
+        }
         return "index";
     }
+
 
     @GetMapping({"/contactUs"})
     public String contactus() {
