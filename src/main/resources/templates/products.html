@@ -65,6 +65,7 @@
             <th scope="col">SN</th>
             <th scope="col">Product Name</th>
             <th scope="col">Stock</th>
+            <th scope="col">Stock Level</th>
             <th scope="col">Category</th>
             <th scope="col">Preview</th>
             <th scope="col">Delete</th>
@@ -72,6 +73,9 @@
         </tr>
         </thead>
         <tbody>
+
+<!--        ALTER TABLE product RENAME COLUMN weight TO stock;-->
+<!--        ALTER TABLE product ALTER COLUMN stock INTEGER;-->
 
         <tr th:each="product, iStat : ${products}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
