@@ -5,14 +5,19 @@ import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.CustomUserDetail;
 import com.sheryians.major.model.Order;
 import com.sheryians.major.model.Product;
+import com.sheryians.major.model.User;
 import com.sheryians.major.repository.UserRepository;
 import com.sheryians.major.service.CustomUserDetailService;
 import com.sheryians.major.service.OrderService;
 import com.sheryians.major.service.ProductService;
+import com.sheryians.major.service.UserService;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +30,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CheckoutController {
     @Autowired
     OrderService orderService;
-    UserRepository userDetails;
+    CustomUserDetailService cuds;
+    UserService userService;
 
     @GetMapping (path="checkout")
     public String payNowGet(Model model){
@@ -42,7 +48,13 @@ public class CheckoutController {
             order.setId(orderDTO.getId());
             order.setPrice(product.getPrice());
             order.setProduct(product);
-            order.setUser(userDetails.findUserByEmail("test1@gmail.com").get()); // CHANGE TO: order.setUser(orderDTO.getUser());
+
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (!(authentication instanceof AnonymousAuthenticationToken)) {
+                String currentUserName = authentication.getName();
+                 order.setUser(userService.getUserByEmail(currentUserName).get());
+                }
+
             order.setWeight(1); // CHANGE TO: order.setWeight(orderDTO.getWeight());
 
             //send order to orders
