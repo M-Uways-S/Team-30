@@ -78,15 +78,15 @@
                 <spna th:text="${product.stock}"></spna> left.
             </h5>
             <script th:inline="javascript">
-                /*<![CDATA[*/
-
-                var stock = /*[[${product.stock}]]*/ 'default';
-
-                if (stock < 10){
-                    document.getElementById("stockWarning").innerHTML = "LOW STOCK"
+                let stock = /*[[${product.stock}]]*/ 'default';
+                let stockWarning = document.getElementById("stockWarning");
+                if (stock <= 0){
+                    stockWarning.innerHTML = "OUT OF STOCK";
+                } else if (stock < 10){
+                    stockWarning.innerHTML = "LOW STOCK";
+                } else {
+                    stockWarning.innerHTML = "IN STOCK";
                 }
-
-                /*]]>*/
             </script>
             <p th:text="${product.description}"></p>
             <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
