@@ -80,29 +80,26 @@
         <tr th:each="product, iStat : ${products}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
             <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.getStock()}">Larry</td>
+            <td th:text="${product.stock}">Larry</td>
             <td id="stockWarning">IN STOCK</td>
+            <script th:inline="javascript">
+                var stock = /*[[${product.stock}]]*/ 'default';
+                var stockWarning = document.getElementById("stockWarning");
+                if (stock <= 0){
+                    stockWarning.innerHTML = "OUT OF STOCK";
+                    stockWarning.style.color = "red";
+                } else if (stock < 10){
+                    stockWarning.innerHTML = "LOW STOCK";
+                    stockWarning.style.color = "orange";
+                } else {
+                    stockWarning.innerHTML = "IN STOCK";
+                    stockWarning.style.color = "green";
+                }
+            </script>
             <td th:text="${product.category.name}">Larry</td>
             <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
-
             <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
             <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
-
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-
-                var stock = /*[[${product.stock}]]*/ 'default';
-
-                if (stock <= 0){
-                    document.getElementById("stockWarning").innerHTML = "OUT OF STOCK"
-                } else if (stock < 10){
-                    document.getElementById("stockWarning").innerHTML = "LOW STOCK"
-                }
-
-                /*]]>*/
-            </script>
-
-
         </tr>
         </tbody>
     </table>
