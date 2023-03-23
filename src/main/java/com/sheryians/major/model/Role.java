@@ -19,6 +19,6 @@ public class Role {
     @NotEmpty
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(fetch=FetchType.LAZY ,mappedBy = "roles")
     private List<User> users;
 }
