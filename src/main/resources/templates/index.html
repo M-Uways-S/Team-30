@@ -41,8 +41,10 @@
             <div class="fas fa-bars" id="menu-btn"></div>
             <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
             <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
-            <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
-            <span class="nav-link" th:text="${cartCount}">0</span>
+            <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn">
+                <span class="nav-link cart-counter" th:text="${cartCount}">0</span>
+            </a>
+            
         </div>
     </header>
 
