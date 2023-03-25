@@ -142,6 +142,21 @@ body{
     color: #fff;
 }
 
+/* Position the cart counter */
+.cart-counter {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+  }
+  
 
 #menu-btn{
     display: none;
