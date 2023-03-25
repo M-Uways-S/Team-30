@@ -720,3 +720,6 @@ select product0_.product_id as product_1_1_, product0_.category_id as category7_
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-25 15:38:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "USERS[*]"; expected "UPDATE, USE"; SQL statement:
+USERS [42001-200]
