@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -56,6 +57,20 @@ public class HomeController {
         model.addAttribute("product", productService.getProductById(id).get());
         model.addAttribute("cartCount", GlobalData.cart.size());
         return "viewProduct";
+    }
+
+    @GetMapping("/search")
+    public String searchProduct(@RequestParam("query") String query, Model model) {
+        List<Product> products;
+
+        if (query.isEmpty()) {
+            products = productService.getAllProduct();
+        } else {
+            products = productService.getAllProductByQuery(query);
+        }
+        model.addAttribute("products", products);
+        model.addAttribute("categories", categoryService.getAllCategory());
+        return "shop";
     }
 
 

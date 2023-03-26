@@ -16,6 +16,9 @@ public class ProductService {
     public List<Product> getAllProduct() {
         return productRepository.findAll();
     }
+    public List<Product> getAllProductByQuery(String query) { 
+       return productRepository.findByNameContainingIgnoreCase(query); 
+    }
     public void addProduct(Product product) {
         productRepository.save(product);
     }
