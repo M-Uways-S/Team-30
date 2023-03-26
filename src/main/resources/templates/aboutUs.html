@@ -39,18 +39,20 @@
 <header class="header">
   <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
   <nav class="navbar">
-    <a th:href="@{/}" href="#">Home</a>
-    <a th:href="@{/shop}" href="#">Shop</a>
-    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
-    <a th:href="@{/aboutUs}" href="#">About Us</a>
-    <a th:href="@{/contactUs}" href="#">Contact Us</a>
+      <a th:href="@{/}" href="#">Home</a>
+      <a th:href="@{/shop}" href="#">Shop</a>
+      <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+      <a th:href="@{/aboutUs}" href="#">About Us</a>
+      <a th:href="@{/contactUs}" href="#">Contact Us</a>
   </nav>
   <div class="icons">
-    <div class="fas fa-bars" id="menu-btn"></div>
-    <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
-    <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
-    <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
-    <span class="nav-link" th:text="${cartCount}">0</span>
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
+      <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
+      <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn">
+          <span class="nav-link cart-counter" th:text="${cartCount}">0</span>
+      </a>
+      
   </div>
 </header>
 
@@ -62,7 +64,7 @@
       Meet the <span>G-Phonez</span> team...
     </div>
     <div class="about">
-      <img th:src="@{/images/about-us.PNG}" class="picture">
+      <img th:src="@{/images/about-us-removebg-preview.PNG}" class="picture">
       <div class="text">
         <h2>WHO ARE WE?</h2>
         <p>The team behind G-Phonez is a group of university students studying at Aston University undertaking BSc Computer Science/BSc Cyber Security degrees.
@@ -191,7 +193,7 @@
   <div class="box-container">
     <div class="box">
       <h3> G+Phonez </h3>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+      <p>We are G+phonez , if you have any queries or troubles please feel free to contact us!</p>
       <div class="share">
         <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
         <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>

@@ -132,6 +132,26 @@ body{
     text-align: center;
 }
 
+.header .icons .a .try{
+
+    display: inline-block;
+    border:.2rem solid var(--black);
+    background: none;
+
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: .5rem;
+    color:var(--black);
+    cursor: pointer;
+
+    height: 4.5rem;
+    width: 12rem;
+    line-height: 4.5rem;
+    font-size: .5rem;
+    margin-right: .3rem;
+    text-align: center;
+}
+
 .header .icons div:hover{
     background: var(--blue);
     color: #fff;
@@ -141,6 +161,27 @@ body{
     background: var(--blue);
     color: #fff;
 }
+
+.header .icons .try:hover{
+    background: var(--blue);
+    color: #fff;
+}
+
+/* Position the cart counter */
+.cart-counter {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+  }
+  
 
 #menu-btn{
     display: none;
@@ -1097,7 +1138,7 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.pic {
+.pic-img {
     border-radius: 100%;
     width: 180px;
     height: 180px;
@@ -1105,7 +1146,7 @@ body{
     margin-bottom: 20px;
     overflow: hidden;
 }
-.pic img{
+.pic-img img{
     position: absolute;
     top: 0;
     left: 0;
@@ -1140,7 +1181,7 @@ body{
     text-align: center;
     letter-spacing: 0.5px;
     line-height: 25px;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
@@ -1149,6 +1190,11 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
+}
+
+.contact-content-box{
+    font-size: 1.6rem;
+    text-align: center;
 }
 
 form .input-box span.details {

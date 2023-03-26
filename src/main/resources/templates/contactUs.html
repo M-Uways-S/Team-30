@@ -49,8 +49,10 @@
     <div class="fas fa-bars" id="menu-btn"></div>
     <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
     <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
-    <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
-    <span class="nav-link" th:text="${cartCount}">0</span>
+    <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn">
+      <span class="cart-counter" th:text="${cartCount}">0</span>
+  </a>
+  
   </div>
 </header>
 <br>
@@ -77,8 +79,8 @@
       <div class="contact-container">
         <div class="contact-main">
           <div class="contact-content">
-            <div class="pic">
-              <img th:src="@{/images/icon-location.png}">
+            <div class="pic-img">
+              <img th:src="@{/images/icon-location-removebg-preview.png}">
             </div>
             <div class="contact-content-box">
               <h3 class="title">Address</h3>
@@ -93,8 +95,8 @@
         </div>
         <div class="contact-main">
           <div class="contact-content">
-            <div class="pic">
-              <img th:src="@{/images/icon-phone.png}">
+            <div class="pic-img">
+              <img th:src="@{/images/icon-phone-removebg-preview.png}">
             </div>
             <div class="contact-content-box">
               <h3 class="title">Phone</h3>
@@ -107,14 +109,14 @@
         </div>
         <div class="contact-main">
           <div class="contact-content">
-            <div class="pic">
+            <div class="pic-img">
               <img th:src="@{/images/icon-email.png}">
             </div>
             <div class="contact-content-box">
               <h3 class="title">Email</h3>
               <h4>Prefer to contact us by email?</h4>
               <h5>
-                <li>Email: GPhonezSupport@gmail.com</li>
+                <li>GPhonezSupport@gmail.com</li>
               </h5>
             </div>
           </div>
@@ -173,7 +175,7 @@
   <div class="box-container">
     <div class="box">
       <h3> G+Phonez </h3>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+      <p>We are G+phonez , if you have any queries or troubles please feel free to contact us!</p>
       <div class="share">
         <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
         <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
