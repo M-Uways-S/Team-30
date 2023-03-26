@@ -25,7 +25,7 @@ public class Userdata {
     @Column(name = "category")
     private String category;
 
-    @Column(name = "texta")
+    @Column(name = "texta", length = 5000)
     private String texta;
 
     public String getTexta() {
