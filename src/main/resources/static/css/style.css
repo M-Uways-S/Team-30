@@ -132,12 +132,37 @@ body{
     text-align: center;
 }
 
+.header .icons .a .try{
+
+    display: inline-block;
+    border:.2rem solid var(--black);
+    background: none;
+
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: .5rem;
+    color:var(--black);
+    cursor: pointer;
+
+    height: 4.5rem;
+    width: 12rem;
+    line-height: 4.5rem;
+    font-size: .5rem;
+    margin-right: .3rem;
+    text-align: center;
+}
+
 .header .icons div:hover{
     background: var(--blue);
     color: #fff;
 }
 
 .header .icons a:hover{
+    background: var(--blue);
+    color: #fff;
+}
+
+.header .icons .try:hover{
     background: var(--blue);
     color: #fff;
 }
