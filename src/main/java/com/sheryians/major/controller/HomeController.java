@@ -2,10 +2,17 @@ package com.sheryians.major.controller;
 
 
 import com.sheryians.major.global.GlobalData;
+import com.sheryians.major.model.CustomUserDetail;
+import com.sheryians.major.model.User;
+import com.sheryians.major.repository.UserRepository;
 import com.sheryians.major.service.CategoryService;
+import com.sheryians.major.service.OrderService;
 import com.sheryians.major.service.ProductService;
 import org.apache.tomcat.jni.Global;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +25,10 @@ public class HomeController {
     CategoryService categoryService;
     @Autowired
     ProductService productService;
+    @Autowired
+    OrderService orderService;
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping({"/", "/home"})
     public String home(Model model) {
@@ -56,6 +67,25 @@ public class HomeController {
         model.addAttribute("product", productService.getProductById(id).get());
         model.addAttribute("cartCount", GlobalData.cart.size());
         return "viewProduct";
+    }
+
+    @GetMapping({"/myOrders"})
+    public String myOrders(){
+        
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Object prcpl = authentication.getPrincipal();
+        CustomUserDetail cud = CustomUserDetail.class.cast(prcpl);
+        User user = userRepository.findUserByEmail(cud.getEmail())
+        .orElseThrow(() -> new UsernameNotFoundException("User Not Found with email: " + cud.getEmail()));
+
+        return "redirect:/myOrders/"+user.getId();
+    }
+
+    @GetMapping({"/myOrders/{id}"})
+    public String myOrders(Model model, @PathVariable int id){
+        model.addAttribute("orders", orderService.getAllOrdersByUserId(id));
+        return "customerOrders";
     }
 
 

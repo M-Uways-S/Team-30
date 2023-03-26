@@ -12,7 +12,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id", referencedColumnName = "ID")
     private User user;
 
@@ -22,4 +22,6 @@ public class Order {
 
     private double price;
     private int weight;
+    @Column(columnDefinition = "boolean default false")
+    private boolean isShipped;
 }

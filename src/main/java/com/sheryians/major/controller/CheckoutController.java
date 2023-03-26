@@ -1,6 +1,7 @@
 package com.sheryians.major.controller;
 
 import com.sheryians.major.dto.OrderDTO;
+import com.sheryians.major.dto.ProductDTO;
 import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.CustomUserDetail;
 import com.sheryians.major.model.Order;
@@ -9,6 +10,7 @@ import com.sheryians.major.model.User;
 import com.sheryians.major.repository.UserRepository;
 import com.sheryians.major.service.CustomUserDetailService;
 import com.sheryians.major.service.OrderService;
+import com.sheryians.major.service.ProductService;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -34,6 +36,8 @@ public class CheckoutController {
     UserRepository userRepository;
     @Autowired
     CustomUserDetailService userDetails;
+    @Autowired
+    ProductService productService;
 
     @GetMapping (path="checkout")
     @Transactional
@@ -65,12 +69,14 @@ public class CheckoutController {
 
             order.setUser(user);
 
-            /*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            if (!(authentication instanceof AnonymousAuthenticationToken)) {
-                order.setUser((User) authentication.getPrincipal());
-                }*/
-
             order.setWeight(1); // CHANGE TO: order.setWeight(orderDTO.getWeight());
+
+            // Remove order from stock
+            product.setWeight(product.getWeight()-order.getWeight());
+            productService.addProduct(product);
+
+            // Shipping status
+            order.setShipped(false);
 
             //send order to orders
             orderService.addOrder(order);

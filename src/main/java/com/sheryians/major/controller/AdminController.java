@@ -150,6 +150,7 @@ public class AdminController {
         order.setWeight(orderDTO.getWeight());
         order.setProduct(orderDTO.getProduct());
         order.setUser(orderDTO.getUser());
+        order.setShipped(orderDTO.isShipped());
         orderService.addOrder(order);
         return "redirect:/admin/orders";
     }
@@ -157,6 +158,18 @@ public class AdminController {
     @GetMapping("/admin/orders/delete/{id}")
     public String deleteOrder(@PathVariable Long id) {
         orderService.removeOrderById(id);
+        return "redirect:/admin/orders";
+    }
+
+    @GetMapping("/admin/orders/shipped/{id}")
+    public String shippedOrder(@PathVariable Long id) {
+        Order order = orderService.getOrderById(id)
+        .orElseThrow(IllegalArgumentException::new);
+
+        order.setShipped(!order.isShipped());
+
+        orderService.addOrder(order);
+
         return "redirect:/admin/orders";
     }
 }

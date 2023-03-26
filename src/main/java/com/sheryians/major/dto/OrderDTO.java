@@ -12,4 +12,5 @@ public class OrderDTO {
     private Product product;
     private double price;
     private int weight;
+    private boolean isShipped;
 }

@@ -57,34 +57,24 @@
 <!-- header end -->
 
 <div class="container-fluid">
-
-    <a th:href="@{/admin/orders/add}" style="margin: 20px 0" class="btn btn-primary">Add Order (W.I.P.)</a>
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">User ID</th>
+            <th scope="col">Product Name</th>
             <th scope="col">Product ID</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Is Shipped</th>
-            <th scope="col"> </th>
-            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
 
         <tr th:each="order, iStat : ${orders}">
-            <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${order.user.id}">Larry</td>
-            <td th:text="${order.product.id}">Larry</td>
-            <td th:text="${order.price}">Larry</td>
-            <td th:text="${order.weight}">Larry</td>
-            <td th:text="${order.isShipped}">Larry</td>
-
-            <td><a href="" th:href="@{/admin/orders/shipped/{id}(id=${order.id})}" class="btn btn-warning">Change Status</a></td>
-            <td><a href="" th:href="@{/admin/orders/delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a></td>
-
+            <td th:text="${order.product.name}">null</td>
+            <td th:text="${order.product.id}">null</td>
+            <td th:text="${order.price}">null</td>
+            <td th:text="${order.weight}">null</td>
+            <td th:text="${order.isShipped}">null</td>
         </tr>
         </tbody>
     </table>

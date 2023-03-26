@@ -66,21 +66,11 @@
                 <input type="hidden" name="id" th:field="*{id}">
                 <div class="form-group">
                     <label for="userId">User ID</label>
-                    <select class="form-control" th:field="*{user}" id="user" name="user">
-                        <option th:each="user :${users}"
-                                th:value="${user.id}"
-                                th:text="${user.id}"
-                        >
-                    </select>
+                    <input class="form-control" th:field="*{user}" id="user" name="user">
                 </div>
                 <div class="form-group">
                     <label for="product">Product ID</label>
-                    <select class="form-control" th:field="*{product}" id="product" name="product">
-                        <option th:each="product :${products}"
-                                th:value="${product.id}"
-                                th:text="${product.name}"
-                        >
-                    </select>
+                    <input class="form-control" th:field="*{product}" id="product" name="product">
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

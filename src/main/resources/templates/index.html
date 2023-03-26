@@ -34,6 +34,7 @@
             <a th:href="@{/}" href="#">Home</a>
             <a th:href="@{/shop}" href="#">Shop</a>
             <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+            <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#">Orders</a>
             <a th:href="@{/aboutUs}" href="#">About Us</a>
             <a th:href="@{/contactUs}" href="#">Contact Us</a>
         </nav>
