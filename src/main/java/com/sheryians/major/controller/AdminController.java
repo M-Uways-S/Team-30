@@ -1,10 +1,13 @@
 package com.sheryians.major.controller;
 
 import com.sheryians.major.dto.ProductDTO;
+import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.Category;
 import com.sheryians.major.model.Product;
+import com.sheryians.major.model.User;
 import com.sheryians.major.service.CategoryService;
 import com.sheryians.major.service.ProductService;
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +29,12 @@ public class AdminController {
     ProductService productService;
 
     @GetMapping("/admin")
-    public String adminHome() {
+    public String adminHome(Model model, Authentication authentication) {
+        model.addAttribute("cartCount", GlobalData.cart.size());
+        if (authentication != null && authentication.isAuthenticated()) {
+            User user = (User) authentication.getPrincipal();
+            model.addAttribute("firstName", user.getFirstName());
+        }
         return "adminHome";
     }
 
@@ -132,4 +140,8 @@ public class AdminController {
 
         return "productsAdd";
     }
+
+
+
+
 }

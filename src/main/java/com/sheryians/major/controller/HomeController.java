@@ -59,19 +59,19 @@ public class HomeController {
         return "viewProduct";
     }
 
-    @GetMapping("/search")
-    public String searchProduct(@RequestParam("query") String query, Model model) {
-        List<Product> products;
-
-        if (query.isEmpty()) {
-            products = productService.getAllProduct();
-        } else {
-            products = productService.getAllProductByQuery(query);
-        }
-        model.addAttribute("products", products);
-        model.addAttribute("categories", categoryService.getAllCategory());
-        return "shop";
-    }
+//    @GetMapping("/search")
+//    public String searchProduct(@RequestParam("query") String query, Model model) {
+//        List<Product> products;
+//
+//        if (query.isEmpty()) {
+//            products = productService.getAllProduct();
+//        } else {
+//            products = productService.getAllProductByQuery(query);
+//        }
+//        model.addAttribute("products", products);
+//        model.addAttribute("categories", categoryService.getAllCategory());
+//        return "shop";
+//    }
 
 
 }

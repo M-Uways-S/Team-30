@@ -59,8 +59,8 @@
     <!-- header end -->
 
 <div class="jumbotron text-center">
-    <h1 class="display-4">Welcome back, Admin</h1>
-    <p>Easily manage your data from this admin <mark>CMS</mark></p>
+    <h1 class="display-4" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Welcome back, <span th:text="${firstName}"></span>!</h1>
+    <p>This is an admin only page. That can be accessed to add or delete categories and products, generate reports and view customer feedback.</p>
 </div>
 <div class="container-fluid">
     <div class="row">
@@ -68,7 +68,7 @@
             <div class="card" style="background-color:white;">
                 <div class="card-body">
                     <h4 class="card-title">Categories</h4>
-                    <p class="card-text">Manage the categories section here.</p>
+                    <p class="card-text">Manage the categories section</p>
                     <a href="#" th:href="@{/admin/categories}" class="btn">Manage</a>
 
                 </div>
@@ -89,7 +89,7 @@
             <div class="card" style="background-color:white;">
                 <div class="card-body">
                     <h4 class="card-title">Stock And Orders</h4>
-                    <p class="card-text">Analyse stock, past customer orders and generate reports.</p>
+                    <p class="card-text">Generate reports.</p>
                     <a href="#" th:href="@{/admin/orders}" class="btn">Manage</a>
 
                 </div>
