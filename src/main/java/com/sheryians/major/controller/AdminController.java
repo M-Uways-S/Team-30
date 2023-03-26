@@ -24,10 +24,12 @@ public class AdminController {
     CategoryService categoryService;
     @Autowired
     ProductService productService;
+
     @GetMapping("/admin")
     public String adminHome() {
         return "adminHome";
     }
+
     @GetMapping("/admin/categories")
     public String getCat(Model model) {
         model.addAttribute("categories", categoryService.getAllCategory());
@@ -40,8 +42,8 @@ public class AdminController {
         return "categoriesAdd";
     }
 
-    @PostMapping ("/admin/categories/add")
-    public String postCatAdd(@ModelAttribute("category")Category category) {
+    @PostMapping("/admin/categories/add")
+    public String postCatAdd(@ModelAttribute("category") Category category) {
         categoryService.addCategory(category);
         return "redirect:/admin/categories";
     }
@@ -55,13 +57,14 @@ public class AdminController {
     @GetMapping("/admin/categories/update/{id}")
     public String updateCat(@PathVariable int id, Model model) {
         Optional<Category> category = categoryService.getCategoryById(id);
-        if(category.isPresent()) {
+        if (category.isPresent()) {
             model.addAttribute("category", category.get());
             return "categoriesAdd";
         } else
             return "404";
     }
-    //Product Section
+
+    // Product Section
     @GetMapping("/admin/products")
     public String products(Model model) {
         model.addAttribute("products", productService.getAllProduct());
@@ -74,11 +77,6 @@ public class AdminController {
         return "adminStock";
     }
 
-    @GetMapping("/admin/CustomerFeedback")
-    public String CustomerFeedback() {
-        return "CustomerFeedback";
-    }
-
     @GetMapping("/admin/products/add")
     public String productAddGet(Model model) {
         model.addAttribute("productDTO", new ProductDTO());
@@ -87,9 +85,9 @@ public class AdminController {
     }
 
     @PostMapping("/admin/products/add")
-    public String productAddPost(@ModelAttribute("productDTO")ProductDTO productDTO,
-                                 @RequestParam("productImage") MultipartFile file,
-                                 @RequestParam("imgName")String imgName) throws IOException {
+    public String productAddPost(@ModelAttribute("productDTO") ProductDTO productDTO,
+            @RequestParam("productImage") MultipartFile file,
+            @RequestParam("imgName") String imgName) throws IOException {
         Product product = new Product();
         product.setId(productDTO.getId());
         product.setName(productDTO.getName());
@@ -98,7 +96,7 @@ public class AdminController {
         product.setWeight(productDTO.getWeight());
         product.setDescription(productDTO.getDescription());
         String imageUUID;
-        if(!file.isEmpty()) {
+        if (!file.isEmpty()) {
             imageUUID = file.getOriginalFilename();
             Path fileNameAndPath = Paths.get(uploadDir, imageUUID);
             Files.write(fileNameAndPath, file.getBytes());
@@ -118,7 +116,7 @@ public class AdminController {
     }
 
     @GetMapping("/admin/product/update/{id}")
-    public  String updateProductGet(@PathVariable long id, Model model) {
+    public String updateProductGet(@PathVariable long id, Model model) {
         Product product = productService.getProductById(id).get();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setId(product.getId());

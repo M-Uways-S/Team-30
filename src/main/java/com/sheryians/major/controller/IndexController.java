@@ -32,4 +32,12 @@ public class IndexController {
         Userdata user_inserted = Userrepo.save(userdata);
         return "contactUs";
     }
+
+    @GetMapping("admin/CustomerFeedback")
+    public String showUserList(Model model) {
+        Iterable<Userdata> userdata = Userrepo.findAll();
+        model.addAttribute("userdata", userdata);
+        return "CustomerFeedback";
+    }
+
 }

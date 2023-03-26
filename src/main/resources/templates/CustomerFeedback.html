@@ -58,28 +58,30 @@
 
 <div class="container-fluid">
 
-    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
+   
     <table class="table">
         <thead class="thead-light">
         <tr>
-            <th scope="col">SN</th>
-            <th scope="col">Product Name</th>
+            <th scope="col">ID number</th>
+            <th scope="col">First name</th>
+            <th scope="col">Second name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
             <th scope="col">Category</th>
-            <th scope="col">Preview</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
+            <th scope="col">Comments</th>
         </tr>
         </thead>
         <tbody>
 
-        <tr th:each="product, iStat : ${products}">
-            <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}">Larry</td>
-            <td th:text="${product.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
-
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
+            <tr th:each="userdata, iStat : ${userdata}">
+                <td th:text="${iStat.index + 1}"></td>
+                <td th:text="${userdata.firstname}"></td>
+                <td th:text="${userdata.secondname}"></td>
+                <td th:text="${userdata.email}"></td>
+                <td th:text="${userdata.phonenumber}"></td>
+                <td th:text="${userdata.category}"></td>
+                <td th:text="${userdata.texta}"></td>
+            </tr>
 
         </tr>
         </tbody>
