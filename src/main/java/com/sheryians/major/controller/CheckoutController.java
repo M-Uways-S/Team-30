@@ -55,6 +55,8 @@ public class CheckoutController {
     @Transactional
     public String payNow(@ModelAttribute("orderDTO") OrderDTO orderDTO){
 
+        List<Order> orders = new ArrayList<Order>();
+
         //get order from cart
         for (Product product : GlobalData.cart){
 
@@ -76,16 +78,40 @@ public class CheckoutController {
 
             order.setStock(1); // CHANGE TO: order.setStock(orderDTO.getStock());
 
-            // Remove order from stock
-            product.setStock(product.getStock()-order.getStock());
-            productService.addProduct(product);
-
             // Shipping status
             order.setShipped(false);
 
             //send order to orders
-            orderService.addOrder(order);
+            orders.add(order);
         }
+
+        Order prevOrder = orders.get(0);
+        Product prevOrderProduct = prevOrder.getProduct();
+        orders.remove(0);
+
+        for (Order order: orders){
+            Product product = order.getProduct();
+
+            if (product.getId() != prevOrderProduct.getId()){
+                // Remove order from stock
+                product.setStock(product.getStock()-prevOrder.getStock());
+                productService.addProduct(product);
+                // Add to orders table
+                orderService.addOrder(prevOrder);
+                // Change prevOrder
+                prevOrder = order;
+                prevOrderProduct = product;
+            } else {
+                // Add to quantity of order
+                prevOrder.setStock(prevOrder.getStock()+1);
+                prevOrder.setPrice(prevOrder.getPrice()+prevOrderProduct.getPrice());
+            }
+        }
+
+        // Repeat of the if statement for final product
+        prevOrderProduct.setStock(prevOrderProduct.getStock()-prevOrder.getStock());
+        productService.addProduct(prevOrderProduct);
+        orderService.addOrder(prevOrder);
 
         //empty cart
         GlobalData.cart = new ArrayList<Product>();
