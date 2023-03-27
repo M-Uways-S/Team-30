@@ -48,7 +48,7 @@
             <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
             <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
 
-            <a class="fa-solid fa-user" th:href="@{/}" href="#"></a>
+            <a class="fa-solid fa-user" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#"></a>
 
             <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
             <span class="nav-link" th:text="${cartCount}">0</span>

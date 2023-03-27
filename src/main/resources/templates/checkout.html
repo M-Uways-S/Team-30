@@ -197,7 +197,9 @@
                             </li>
                         </ul>
 
-                        <form action="" method="post" th:action="@{/payNow}" >
+                        <form action="" method="post" th:action="@{/payNow}" th:object="${orderDTO}">
+                            <input type="hidden" name="id" th:field="*{id}">
+                            <input type="hidden" name="user" th:field="*{user}">
                             <button type="submit"  class="btn btn-primary btn-block waves-effect waves-light">Pay Now</button>
                         </form>
 

@@ -1,11 +1,14 @@
 package com.sheryians.major.controller;
 
+import com.sheryians.major.dto.OrderDTO;
 import com.sheryians.major.dto.ProductDTO;
 import com.sheryians.major.global.GlobalData;
 import com.sheryians.major.model.Category;
+import com.sheryians.major.model.Order;
 import com.sheryians.major.model.Product;
 import com.sheryians.major.model.User;
 import com.sheryians.major.service.CategoryService;
+import com.sheryians.major.service.OrderService;
 import com.sheryians.major.service.ProductService;
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,8 @@ public class AdminController {
     CategoryService categoryService;
     @Autowired
     ProductService productService;
+    @Autowired
+    OrderService orderService;
 
     @GetMapping("/admin")
     public String adminHome(Model model, Authentication authentication) {
@@ -79,7 +84,7 @@ public class AdminController {
         return "products";
     }
 
-    @GetMapping("/admin/orders")
+    @GetMapping("/admin/stock")
     public String orders(Model model) {
         model.addAttribute("products", productService.getAllProduct());
         return "adminStock";
@@ -141,6 +146,52 @@ public class AdminController {
         return "productsAdd";
     }
 
+
+    // Orders page
+
+    @GetMapping("/admin/orders")
+    public String getOrder(Model model) {
+        model.addAttribute("orders", orderService.getAllOrder());
+        model.addAttribute("products", productService.getAllProduct());
+        return "orders";
+    }
+
+    @GetMapping("/admin/orders/add")
+    public String getOrderAdd(Model model) {
+        model.addAttribute("orderDTO", new OrderDTO());
+        return "ordersAdd";
+    }
+
+    @PostMapping("/admin/orders/add")
+    public String productAddPost(@ModelAttribute("orderDTO")OrderDTO orderDTO) throws IOException {
+        Order order = new Order();
+        order.setId(orderDTO.getId());
+        order.setPrice(orderDTO.getPrice());
+        order.setStock(orderDTO.getStock());
+        order.setProduct(orderDTO.getProduct());
+        order.setUser(orderDTO.getUser());
+        order.setShipped(orderDTO.isShipped());
+        orderService.addOrder(order);
+        return "redirect:/admin/orders";
+    }
+
+    @GetMapping("/admin/orders/delete/{id}")
+    public String deleteOrder(@PathVariable Long id) {
+        orderService.removeOrderById(id);
+        return "redirect:/admin/orders";
+    }
+
+    @GetMapping("/admin/orders/shipped/{id}")
+    public String shippedOrder(@PathVariable Long id) {
+        Order order = orderService.getOrderById(id)
+                .orElseThrow(IllegalArgumentException::new);
+
+        order.setShipped(!order.isShipped());
+
+        orderService.addOrder(order);
+
+        return "redirect:/admin/orders";
+    }
 
 
 
