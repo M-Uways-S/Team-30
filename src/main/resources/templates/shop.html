@@ -43,16 +43,24 @@
         <a th:href="@{/aboutUs}" href="#">About Us</a>
         <a th:href="@{/contactUs}" href="#">Contact Us</a>
     </nav>
+
+
     <div class="icons">
+
+        <a class="try" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Hi, <span th:text="${firstName}"></span></a>
+
+
         <div class="fas fa-bars" id="menu-btn"></div>
-        <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
-        <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
-        <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn">
-            <span class="cart-counter" th:text="${cartCount}">0</span>
-        </a>
-        
+        <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+        <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+
+        <a class="fa-solid fa-user" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#"></a>
+
+        <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
+        <span class="nav-link" th:text="${cartCount}">0</span>
     </div>
 </header>
+
 <br>
 <br>
 <br>

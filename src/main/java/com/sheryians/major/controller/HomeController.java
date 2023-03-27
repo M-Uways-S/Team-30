@@ -46,12 +46,14 @@ public class HomeController {
     }
 
     @GetMapping({"/contactUs"})
-    public String contactus() {
+    public String contactus(Model model) {
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "contactUs";
     }
 
     @GetMapping({"/aboutUs"})
-    public String aboutus() {
+    public String aboutus(Model model) {
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "aboutUs";
     }
 
