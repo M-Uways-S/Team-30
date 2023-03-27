@@ -73,9 +73,21 @@
             <h2 th:text="${product.name}"></h2>
             <p th:text="${product.category.name}"></p>
             <h2>£ <span th:text="${product.price}"></span></h2>
-            <h5>Weight:
-                <spna th:text="${product.weight}"></spna> grams.
+            <p id="stockWarning">IN STOCK</p>
+            <h5>Stock:
+                <spna th:text="${product.stock}"></spna> left.
             </h5>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+
+                var stock = /*[[${product.stock}]]*/ 'default';
+
+                if (stock < 10){
+                    document.getElementById("stockWarning").innerHTML = "LOW STOCK"
+                }
+
+                /*]]>*/
+            </script>
             <p th:text="${product.description}"></p>
             <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
         </div>

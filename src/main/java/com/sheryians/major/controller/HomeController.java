@@ -2,15 +2,20 @@ package com.sheryians.major.controller;
 
 
 import com.sheryians.major.global.GlobalData;
+import com.sheryians.major.model.Product;
+import com.sheryians.major.model.User;
 import com.sheryians.major.service.CategoryService;
 import com.sheryians.major.service.ProductService;
 import org.apache.tomcat.jni.Global;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Controller
@@ -21,8 +26,12 @@ public class HomeController {
     ProductService productService;
 
     @GetMapping({"/", "/home"})
-    public String home(Model model) {
+    public String home(Model model, Authentication authentication) {
         model.addAttribute("cartCount", GlobalData.cart.size());
+        if (authentication != null && authentication.isAuthenticated()) {
+            User user = (User) authentication.getPrincipal();
+            model.addAttribute("firstName", user.getFirstName());
+        }
         return "index";
     }
 
@@ -59,19 +68,19 @@ public class HomeController {
         return "viewProduct";
     }
 
-//    @GetMapping("/search")
-//    public String searchProduct(@RequestParam("query") String query, Model model) {
-//        List<Product> products;
-//
-//        if (query.isEmpty()) {
-//            products = productService.getAllProduct();
-//        } else {
-//            products = productService.getAllProductByQuery(query);
-//        }
-//        model.addAttribute("products", products);
-//        model.addAttribute("categories", categoryService.getAllCategory());
-//        return "shop";
-//    }
+    @GetMapping("/search")
+    public String searchProduct(@RequestParam("query") String query, Model model) {
+        List<Product> products;
+
+        if (query.isEmpty()) {
+            products = productService.getAllProduct();
+        } else {
+            products = productService.getAllProductByQuery(query);
+        }
+        model.addAttribute("products", products);
+        model.addAttribute("categories", categoryService.getAllCategory());
+        return "shop";
+    }
 
 
 }

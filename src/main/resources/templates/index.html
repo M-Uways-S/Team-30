@@ -41,6 +41,9 @@
 
         <div class="icons">
 
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Hi, <span th:text="${firstName}"></span></a>
+
+
             <div class="fas fa-bars" id="menu-btn"></div>
             <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
             <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>

@@ -64,6 +64,8 @@
         <tr>
             <th scope="col">SN</th>
             <th scope="col">Product Name</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Stock Level</th>
             <th scope="col">Category</th>
             <th scope="col">Preview</th>
             <th scope="col">Delete</th>
@@ -72,19 +74,50 @@
         </thead>
         <tbody>
 
+        <!--        ALTER TABLE product RENAME COLUMN weight TO stock;-->
+        <!--        ALTER TABLE product ALTER COLUMN stock INTEGER;-->
+
         <tr th:each="product, iStat : ${products}">
             <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.category.name}"></td>
+            <td th:text="${product.name}">Larry</td>
+            <td>
+                <input type="number" min="0" step="1" th:value="${product.stock}"
+                       th:attr="data-product-id=${product.id}"
+                       onchange="updateStockLevel(event)">
+            </td>
+            <td class="stock-level" th:text="${product.stock > 0 ? 'In Stock' : 'Out of Stock'}"
+                th:classappend="${product.stock <= 0 ? 'text-danger' : product.stock < 10 ? 'text-warning' : 'text-success'}">
+            </td>
+            <td th:text="${product.category.name}">Larry</td>
             <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
-
             <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
             <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
-
         </tr>
         </tbody>
     </table>
 </div>
+
+<script>
+    function updateStockLevel(event) {
+        const productId = event.target.dataset.productId;
+        const stockLevelElement = document.querySelector(`[data-product-id="${productId}"]`).closest('tr').querySelector('.stock-level');
+        const stock = event.target.value;
+
+        if (stock <= 0){
+            stockLevelElement.innerHTML = "Out of Stock";
+            stockLevelElement.classList.remove('text-warning', 'text-success');
+            stockLevelElement.classList.add('text-danger');
+        } else if (stock < 10){
+            stockLevelElement.innerHTML = "Low Stock";
+            stockLevelElement.classList.remove('text-danger', 'text-success');
+            stockLevelElement.classList.add('text-warning');
+        } else {
+            stockLevelElement.innerHTML = "In Stock";
+            stockLevelElement.classList.remove('text-danger', 'text-warning');
+            stockLevelElement.classList.add('text-success');
+        }
+    }
+</script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
