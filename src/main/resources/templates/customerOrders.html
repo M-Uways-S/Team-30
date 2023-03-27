@@ -69,8 +69,9 @@
 
 <!-- header end -->
 
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search...">
 <div class="container-fluid">
-  <table class="table">
+  <table class="table" id="myTable">
     <thead class="thead-light">
     <tr>
       <th scope="col">Product Name</th>
@@ -91,6 +92,28 @@
     </tr>
     </tbody>
   </table>
+
+  <script>
+    function filterTable() {
+      var input, filter, table, tr, td, i, j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+            break;
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

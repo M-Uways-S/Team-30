@@ -113,7 +113,7 @@
     }
   }
 </script>
-
+<!--
 <section id="ad-list-customer" class="section-1">
   <table width=auto>
     <h2>Customer List</h2>
@@ -124,18 +124,18 @@
       <td>Email</td>
     </thead>
     <tbody>
-    <tr>
-      <td>First.Name</td>
-      <td>Last.Name</td>
-      <td>email@email.com</td>
+    <tr th:each="user, iStat : ${users}">
+      <td th:text="${user.getFirstName}">First.Name</td>
+      <td th:text="${user.getLastName}">Last.Name</td>
+      <td th:text="${user.getEmail}">email@email.com</td>
     </tr>
     </tbody>
   </table>
-</section>
+</section> !-->
 
-
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search...">
 <section id="admin-currently-placed-orders" class="section-p1">
-  <table width=auto>
+  <table width=auto id="myTable">
     <h2>Currently Placed Orders</h2>
     <thead>
     <tr>
@@ -144,29 +144,51 @@
       <td>Product</td>
       <td>Total</td>
       <td>Quantity</td>
-      <td>Status</td>
+      <td>Is Shipped</td>
+      <td>Change Status</td>
+      <td>Delete</td>
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr th:each="order, iStat : ${orders}">
       <td>Order.Date</td>
-      <td>Order.Email</td>
-      <td>Order.Name</td>
-      <td>Order.Total</td>
-      <td>Order.Quantity</td>
-      <td><select class="form-control" name="orderStatus">
-        <option th:value="PENDING" th:text="Pending" ></option>
-        <option th:value="SHIPPED" th:text="Shipped" ></option>
-        <option th:value="DELIVERED" th:text="Delivered" ></option>
-        <option th:value="CANCELLED" th:text="Cancelled" ></option>
-      </select></td>
+      <td th:text="${order.user.email}">Email</td>
+      <td th:text="${order.product.name}">Product.Name</td>
+      <td th:text="${order.price}">Order.Total</td>
+      <td th:text="${order.stock}">Order.Quantity</td>
+      <td th:text="${order.isShipped}">Status</td>
+
+      <td><a href="" th:href="@{/admin/orders/shipped/{id}(id=${order.id})}" class="btn btn-warning">Change Status</a></td>
+      <td><a href="" th:href="@{/admin/orders/delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a></td>
     </tr>
     </tbody>
   </table>
+
+  <script>
+    function filterTable() {
+      var input, filter, table, tr, td, i, j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+            break;
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
 </section>
 
 
-<div class="container-fluid">
+<!--<div class="container-fluid">
 
   <a th:href="@{/admin/orders/add}" style="margin: 20px 0" class="btn btn-primary">Add Order (W.I.P.)</a>
   <table class="table">
@@ -180,6 +202,8 @@
       <th scope="col">Is Shipped</th>
       <th scope="col"> </th>
       <th scope="col">Delete</th>
+
+      
     </tr>
     </thead>
     <tbody>
@@ -198,7 +222,7 @@
     </tr>
     </tbody>
   </table>
-</div>
+</div> !-->
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
