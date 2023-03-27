@@ -12,8 +12,11 @@ import com.sheryians.major.service.CustomUserDetailService;
 import com.sheryians.major.service.OrderService;
 import com.sheryians.major.service.ProductService;
 
+import javassist.expr.NewArray;
+
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -51,8 +54,10 @@ public class CheckoutController {
     @PostMapping (path="payNow")
     @Transactional
     public String payNow(@ModelAttribute("orderDTO") OrderDTO orderDTO){
+
         //get order from cart
         for (Product product : GlobalData.cart){
+
             Order order = new Order();
             order.setId(orderDTO.getId());
             order.setPrice(product.getPrice());

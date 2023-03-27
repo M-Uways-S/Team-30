@@ -16,6 +16,7 @@ public class CartController {
     @GetMapping("/addToCart/{id}")
     public String addToCart(@PathVariable int id) {
         GlobalData.cart.add(productService.getProductById(id).get());
+        GlobalData.cart.sort(null);
         return "redirect:/shop";
     }
     @GetMapping("/cart")
