@@ -115,9 +115,9 @@
                                     <h5 class="card-title" th:text="${product.name}"></h5>
                                     <h4>£ <span th:text="${product.price}"></span></h4>
                                     <p th:text="${product.description}" ></p>
-                                    <a href="#" th:href="@{/shop/viewproduct/{id}(id=${product.id})}" class="btn btn-primary">View Product</a>
+                                    <a href="#" th:href="@{/shop/viewproduct/{id}(id=${product.id})}" class="btn-view-product">View Product</a>
                                     <br>
-                                    <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
+                                    <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn-add-to-cart">Add to cart</a>
                                 </div>
                             </div>
                         </div>
