@@ -1841,3 +1841,7 @@ form .user-details .input-box {
     background-color: #00d9ff;
     color: white;
 }
+
+.pic img {
+    border: 0.01px solid #ddd;
+}
