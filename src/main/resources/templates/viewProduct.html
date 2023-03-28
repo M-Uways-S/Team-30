@@ -82,10 +82,11 @@
 
                 var stock = /*[[${product.stock}]]*/ 'default';
 
-                if (stock < 10){
+                if (stock <= 0){
+                    document.getElementById("stockWarning").innerHTML = "OUT OF STOCK"
+                } else if (stock < 10){
                     document.getElementById("stockWarning").innerHTML = "LOW STOCK"
                 }
-
                 /*]]>*/
             </script>
             <p th:text="${product.description}"></p>
