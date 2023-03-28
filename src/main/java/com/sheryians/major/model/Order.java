@@ -24,4 +24,6 @@ public class Order {
     private int stock;
     @Column(columnDefinition = "boolean default false")
     private boolean isShipped;
+
+    private String date;
 }

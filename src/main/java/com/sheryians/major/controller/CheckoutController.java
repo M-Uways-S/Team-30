@@ -16,6 +16,7 @@ import javassist.expr.NewArray;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,9 @@ public class CheckoutController {
 
             // Shipping status
             order.setShipped(false);
+
+            // Set date
+            order.setDate(java.time.LocalDate.now().toString());
 
             //send order to orders
             orders.add(order);

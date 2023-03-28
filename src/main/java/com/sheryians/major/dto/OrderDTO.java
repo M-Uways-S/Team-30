@@ -13,4 +13,5 @@ public class OrderDTO {
     private double price;
     private int stock;
     private boolean isShipped;
+    private String date;
 }
