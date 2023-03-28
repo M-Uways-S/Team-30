@@ -34,23 +34,35 @@
 
 <!-- header start -->
 
-<header class="header">
-    <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
-    <nav class="navbar">
-        <a th:href="@{/}" href="#">Home</a>
-        <a th:href="@{/shop}" href="#">Shop</a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
-        <a th:href="@{/aboutUs}" href="#">About Us</a>
-        <a th:href="@{/contactUs}" href="#">Contact Us</a>
-    </nav>
-    <div class="icons">
-        <div class="fas fa-bars" id="menu-btn"></div>
-        <a class="fa-solid fa-user" sec:authorize="isAnonymous()" th:href="@{/login}" href="#"></a>
-        <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
-        <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
-        <span class="nav-link" th:text="${cartCount}">0</span>
-    </div>
-</header>
+    <!-- header start -->
+
+    <header class="header">
+        <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+        <nav class="navbar">
+            <a th:href="@{/}" href="#">Home</a>
+            <a th:href="@{/shop}" href="#">Shop</a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+            <a th:href="@{/aboutUs}" href="#">About Us</a>
+            <a th:href="@{/contactUs}" href="#">Contact Us</a>
+        </nav>
+
+
+        <div class="icons">
+
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Hi, <span th:text="${firstName}"></span></a>
+
+
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+
+            <a class="fa-solid fa-user" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#"></a>
+
+            <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
+            <span class="nav-link" th:text="${cartCount}">0</span>
+        </div>
+    </header>
+
 <br>
 <br>
 <br>
@@ -90,7 +102,7 @@
                 /*]]>*/
             </script>
             <p th:text="${product.description}"></p>
-            <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
+            <a href="" th:href="@{/addToCart/{id}(id = ${product.id})}" class="btn-add-to-cart">Add to cart</a>
         </div>
     </div>
 </div>
@@ -106,37 +118,40 @@
 <br>
 <br>
 <br>
-<section class="footer">
-    <div class="box-container">
-        <div class="box">
-            <h3> G+Phonez </h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
-            <div class="share">
-                <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
-                <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
-                <a th:href="@{https://www.instagram.com/}" href="#" class="fab fa-instagram"></a>
-                <a th:href="@{https://www.linkedin.com/feed/}" href="#" class="fab fa-linkedin"></a>
+    <!-- footer start -->
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3> G+Phonez </h3>
+                <p>We are G+phonez , if you have any queries or troubles please feel free to contact us!</p>
+                <div class="share">
+                    <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
+                    <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
+                    <a th:href="@{https://www.instagram.com/}" href="#" class="fab fa-instagram"></a>
+                    <a th:href="@{https://www.linkedin.com/feed/}" href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +0800 111 222 </a>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +1111 222 333 </a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i> g+phonezsupport@gmail.com </a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> birmingham, united kingdom </a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a th:href="@{/}" href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+                <a th:href="@{/shop}" href="#" class="links"> <i class="fas fa-arrow-right"></i> shop </a>
+                <a th:href="@{/aboutUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
+                <a th:href="@{/contactUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
             </div>
         </div>
-        <div class="box">
-            <h3>contact info</h3>
-            <a href="#" class="links"> <i class="fas fa-phone"></i> +0800 111 222 </a>
-            <a href="#" class="links"> <i class="fas fa-phone"></i> +1111 222 333 </a>
-            <a href="#" class="links"> <i class="fas fa-envelope"></i> g+phonezsupport@gmail.com </a>
-            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> birmingham, united kingdom </a>
-        </div>
-        <div class="box">
-            <h3>quick links</h3>
-            <a th:href="@{/}" href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
-            <a th:href="@{/shop}" href="#" class="links"> <i class="fas fa-arrow-right"></i> shop </a>
-            <a th:href="@{/aboutUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
-            <a th:href="@{/contactUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
-        </div>
-    </div>
-    <div class="credit"> created by <span> Group30 </span> | Aston University</div>
-</section>
+        <div class="credit"> created by <span> Group30 </span> | Aston University</div>
+    </section>
 
-<!-- footer end -->
+    <!-- footer end -->
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
