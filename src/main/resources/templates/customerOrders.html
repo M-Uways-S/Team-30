@@ -83,6 +83,7 @@
     <h2>My Orders</h2>
     <thead>
     <tr>
+      <th scope="col">Order Date</th>
       <th scope="col">Product Name</th>
       <th scope="col">Product ID</th>
       <th scope="col">Price</th>
@@ -93,6 +94,7 @@
     <tbody>
 
     <tr th:each="order, iStat : ${orders}">
+      <td th:text="${order.date}">null</td>
       <td th:text="${order.product.name}">null</td>
       <td th:text="${order.product.id}">null</td>
       <td th:text="${order.price}">null</td>
