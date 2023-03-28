@@ -1636,9 +1636,123 @@ form .user-details .input-box {
     #admin-currently-placed-orders h2 {
         text-align: center;
         font-size: 30px;
-    } 
+    }
+    /*styles for currently placed orders table on customer page*/
+    #my-currently-placed-orders table {
+    width: 95%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    align-items: center;
+    margin: 0 auto;
+}
 
-    #ad-list-customer, #admin-product-stock, #admin-currently-placed-orders {
+    #my-currently-placed-orders table th {
+        width: 20%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #my-currently-placed-orders table td {
+    width: 20%;
+    text-align: center;
+}
+
+    #my-currently-placed-orders table td:nth-child(1),
+    #my-currently-placed-orders table td:nth-child(2),
+    #my-currently-placed-orders table td:nth-child(3),
+    #my-currently-placed-orders table td:nth-child(4),
+    #my-currently-placed-orders table td:nth-child(5) {
+        width: 20%;
+        text-align: center;
+    }
+
+
+    #my-currently-placed-orders table thead {
+        border: 1px solid #00d9ff;
+        border-left: none;
+        border-right: none;
+    }
+
+    #my-currently-placed-orders table thead td {
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    #my-currently-placed-orders table tbody tr td {
+        font-weight: 500;
+        font-size: 13px;
+        padding-top: 15px;
+    }
+
+    #my-currently-placed-orders h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    /*styles for currently placed orders table on customer page*/
+    #admin-stock table {
+        width: 95%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        white-space: nowrap;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    #admin-stock table th {
+        width: 16.6%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    #admin-stock table td {
+        width: 16.6%;
+        text-align: center;
+    }
+
+    #admin-stock table td:nth-child(1),
+    #admin-stock table td:nth-child(2),
+    #admin-stock table td:nth-child(3),
+    #admin-stock table td:nth-child(4),
+    #admin-stock table td:nth-child(5),
+    #admin-stock table td:nth-child(6)
+    {
+        width: 16.6%;
+        text-align: center;
+    }
+
+    #admin-stock table input[type="number"] {
+        width: 50px;
+    }
+
+    #admin-stock table td:nth-child(3) {
+        width: 20%;
+        text-align: center;
+    }
+
+    #admin-stock table thead {
+        border: 1px solid #00d9ff;
+        border-left: none;
+        border-right: none;
+    }
+
+    #admin-stock table thead td {
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    #admin-stock table tbody tr td {
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    #admin-stock h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+#ad-list-customer, #admin-product-stock, #admin-currently-placed-orders, #my-currently-placed-orders{
         margin-bottom: 50px;
     }
 
@@ -1679,5 +1793,7 @@ form .user-details .input-box {
     color: #BEBEBE;
     font-style: italic;
 }
+
+
 
 

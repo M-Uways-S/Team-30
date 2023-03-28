@@ -55,11 +55,24 @@
 <br>
 
 <!-- header end -->
-<h2>Items In Stock</h2>
-<div class="container-fluid">
 
-  <table class="table">
-    <thead class="thead-light">
+<div style="background-color: #f5f5f5; padding: 10px;">
+  <h3>Printable report: Stock levels and incoming and outgoing orders</h3>
+  <ol>
+    <li>Click on the three dots in the top right corner of your browser window</li>
+    <li>Select "Print" from the drop-down menu or Ctrl+P</li>
+    <li>Choose your printer and adjust any print settings to your desire</li>
+    <li>Click "Print" to print your report</li>
+  </ol>
+</div>
+
+<br><br><br><br>
+
+
+<section id="admin-stock" class="section-p1">
+  <table width=auto id="Table">
+    <h2>Items In Stock</h2>
+    <thead>
     <tr>
       <th scope="col">SN</th>
       <th scope="col">Product Name</th>
@@ -90,7 +103,7 @@
     </tr>
     </tbody>
   </table>
-</div>
+</section>
 
 <script>
   function updateStockLevel(event) {
@@ -113,6 +126,8 @@
     }
   }
 </script>
+
+<br><br><br>
 <!--
 <section id="ad-list-customer" class="section-1">
   <table width=auto>
@@ -132,10 +147,39 @@
     </tbody>
   </table>
 </section> !-->
+<div style="background-color: #f5f5f5; padding: 10px;">
+  <h3>To configure an order as outgoing:</h3>
+  <ol>
+    <li>Click on the change status button below (yellow)</li>
+    <li>This will change it for the user to notify them</li>
+    <li>that it has gone from incoming(false) to outgoing(true) i.e. is being shipped</li>
+  </ol>
+</div>
 
-<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search...">
+<br>
+
+<style>
+  #myInput {
+    width: 300px;
+    padding: 20px;
+    margin-right: 500px;
+    font-size: 16px;
+  }
+</style>
+
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Filter and search orders...">
 <section id="admin-currently-placed-orders" class="section-p1">
   <table width=auto id="myTable">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 15%">
+      <col style="width: 30%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 7.5%">
+      <col style="width: 7.5%">
+    </colgroup>
     <h2>Currently Placed Orders</h2>
     <thead>
     <tr>
@@ -151,7 +195,7 @@
     </thead>
     <tbody>
     <tr th:each="order, iStat : ${orders}">
-      <td>Order.Date</td>
+     <td>Order.Date</td> <!-- <td th:text="${#dates.format(order.date, 'yyyy-MM-dd')}">Date</td>-->
       <td th:text="${order.user.email}">Email</td>
       <td th:text="${order.product.name}">Product.Name</td>
       <td th:text="${order.price}">Order.Total</td>
