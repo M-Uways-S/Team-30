@@ -195,11 +195,7 @@
     </thead>
     <tbody>
     <tr th:each="order, iStat : ${orders}">
-<<<<<<< Updated upstream
-     <td>Order.Date</td> <!-- <td th:text="${#dates.format(order.date, 'yyyy-MM-dd')}">Date</td>-->
-=======
       <td th:text="${order.date}">Order.Date</td>
->>>>>>> Stashed changes
       <td th:text="${order.user.email}">Email</td>
       <td th:text="${order.product.name}">Product.Name</td>
       <td th:text="${order.price}">Order.Total</td>
