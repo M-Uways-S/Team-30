@@ -3,6 +3,9 @@ Aston University CS2TP Web application project.
 
 ##### Table of contents
 
+[Headers](#headers)  
+[Emphasis](#emphasis) 
+
 - Description (#description)
 
 - G-Phonez is a global ecommerce store created by 8 students attending Aston university.
