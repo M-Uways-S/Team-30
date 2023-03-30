@@ -20,7 +20,11 @@ Aston University CS2TP Web application project.
 
 - This installation process provides instructions on how to run the e-commerce store locally on your device.
 
-
+- 1. Clone the github repository (https://github.com/M-Uways-S/Team-30.git)
+- 2. Open in an IDE (e.g Visual studio)
+- 3. Follow this path: src->test->"MajorApplicationTests.java"
+- 4. Run "MajorApplicationTests.java" (ensure java extensions are installed)
+- 5. Open a web browser and enter "localhost:8080"
 
 
 
