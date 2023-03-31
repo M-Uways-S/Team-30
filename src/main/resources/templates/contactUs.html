@@ -139,17 +139,20 @@
           <div class="user-details">
             <div class="input-box">
               <div class="form-group">
-              <span class="details">First name</span>
-              <input type="text" name="firstname" placeholder="Enter your first name" required>
-            </div>
-            <div class="input-box">
-              <span class="details">Second name</span>
-              <input type="text" name="secondname" placeholder="Enter your second name" required>
-            </div>
-            <div class="input-box">
-              <span class="details">Email</span>
-              <input type="text" name="email" placeholder="Enter your email" required>
-            </div>
+                <div class="input-box">
+                  <span class="details">First name</span>
+                  <input type="text" name="firstname" placeholder="Enter your first name" pattern="[A-Za-z]+" title="Only alphabets are allowed" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Second name</span>
+                  <input type="text" name="secondname" placeholder="Enter your second name" pattern="[A-Za-z]+" title="Only alphabets are allowed" required>
+                </div>
+                
+                <div class="input-box">
+                  <span class="details">Email</span>
+                  <input type="email" name="email" placeholder="Enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                </div>
+                
             <div class="input-box">
               <span class="details">Phone Number</span>
               <input type="text" name="Phonenumber" placeholder="Enter your number" required pattern="[0-9]+" title="Please enter only numbers">
