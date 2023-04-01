@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+
+    <!-- swiper link -->
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+    <!-- font awesome link link -->
+    <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+    <!-- custom css link -->
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+    <!-- boxicons CSS -->
+    <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+</head>
+<body>
+
+
+    <!-- header start -->
+
+    <header class="header">
+        <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+        <nav class="navbar">
+            <a th:href="@{/}" href="#">Home</a>
+            <a th:href="@{/shop}" href="#">Shop</a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+            <a th:href="@{/aboutUs}" href="#">About Us</a>
+            <a th:href="@{/contactUs}" href="#">Contact Us</a>
+        </nav>
+
+
+        <div class="icons">
+
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Hi, <span th:text="${firstName}"></span></a>
+
+
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+
+            <a class="fa-solid fa-user" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#"></a>
+
+            <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
+            <span class="nav-link" th:text="${cartCount}">0</span>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- header end -->
+
+<main>
+    <div class="container">
+
+        <!--Section: Block Content-->
+        <section class="mt-5 mb-4">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-8">
+
+                    <!-- Card -->
+                    <div class="card wish-list mb-4">
+                        <div class="card-body">
+
+                            <h5 class="mb-4">Cart (<span th:text="${cartCount}">2</span> items)</h5>
+
+                            <div class="row mb-4" th:each="item, iStat : ${cart}">
+                                <div class="col-md-5 col-lg-3 col-xl-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <img class="" height="150px" width="150px"
+                                             th:src="@{${'/productImages/' + item.imageName}}"
+                                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg" alt="Sample">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-lg-9 col-xl-9">
+                                    <div>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h5 th:text="${item.name}">Blue denim shirt</h5>
+                                                <p class="mb-3 text-uppercase small">Stock: <span th:text="${item.stock}"></span></p>
+<!--                                                <p class="mb-2 text-uppercase small">Category: <span th:text="${item.category.name}"></span></p>-->
+
+                                            </div>
+
+                                        </div>
+                                        <div class="mt-5 d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <a href="#!" th:href="@{/cart/removeItem/{index}(index=${iStat.index})}"  type="button" class="card-link-secondary small text-uppercase mr-3"><i
+                                                        class="fas fa-trash-alt mr-1"></i> Remove item </a>
+
+                                            </div>
+                                            <p class="mb-0"><span><strong>£<span th:text="${item.price}"></span></strong></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+
+                            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding
+                                items to your cart does not mean booking them.</p>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4">
+
+                    <!-- Card -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+
+                            <h5 class="mb-3">The total amount </h5>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    Amount Payable
+                                    <span>£<span th:text="${total}"></span></span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    Shipping
+                                    <span>Free Shipping</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                        <strong>The total amount of</strong>
+                                        <strong>
+                                            <p class="mb-0">(including VAT)</p>
+                                        </strong>
+                                    </div>
+                                    <span><strong>£<span th:text="${total}"></span></strong></span>
+                                </li>
+                            </ul>
+
+                            <a th:href="@{/checkout}" h class="btn btn-primary btn-block waves-effect waves-light">go to
+                                checkout</a>
+
+                        </div>
+                    </div>
+                    <!-- Card -->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </section>
+        <!--Section: Block Content-->
+
+    </div>
+</main>
+<!--Main layout-->
+<!-- footer start -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3> G+Phonez </h3>
+            <p>We are G+phonez , if you have any queries or troubles please feel free to contact us!</p>
+            <div class="share">
+                <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
+                <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
+                <a th:href="@{https://www.instagram.com/}" href="#" class="fab fa-instagram"></a>
+                <a th:href="@{https://www.linkedin.com/feed/}" href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +0800 111 222 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +1111 222 333 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> g+phonezsupport@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> birmingham, united kingdom </a>
+        </div>
+        <div class="box">
+            <h3>quick links</h3>
+            <a th:href="@{/}" href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a th:href="@{/shop}" href="#" class="links"> <i class="fas fa-arrow-right"></i> shop </a>
+            <a th:href="@{/aboutUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
+            <a th:href="@{/contactUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
+        </div>
+    </div>
+    <div class="credit"> created by <span> Group30 </span> | Aston University</div>
+</section>
+
+<!-- footer end -->
+
+<!-- script links bundle -->
+<script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/popper.js/dist/umd/popper.min.js}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js}" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<!-- swiper bundle -->
+<script th:src="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js}"></script>
+
+<!-- custom js file link  -->
+<script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+</body>
+</html>

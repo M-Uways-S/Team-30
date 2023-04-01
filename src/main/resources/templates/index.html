@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+
+    <!-- swiper link -->
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+    <!-- font awesome link link -->
+    <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+    <!-- custom css link -->
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+    <!-- boxicons CSS -->
+    <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <!-- header start -->
+
+    <header class="header">
+        <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+        <nav class="navbar">
+            <a th:href="@{/}" href="#">Home</a>
+            <a th:href="@{/shop}" href="#">Shop</a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+            <a th:href="@{/aboutUs}" href="#">About Us</a>
+            <a th:href="@{/contactUs}" href="#">Contact Us</a>
+        </nav>
+
+
+        <div class="icons">
+
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/admin}" href="#">Hi, <span th:text="${firstName}"></span></a>
+
+
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a class="try" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+            <a class="try" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
+
+            <a class="fa-solid fa-user" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/myOrders}" href="#"></a>
+
+            <a class="fas fa-shopping-cart" th:href="@{/cart}" href="#" id="cart-btn"></a>
+            <span class="nav-link" th:text="${cartCount}">0</span>
+        </div>
+    </header>
+
+    <!-- header end -->
+    <!-- call to action hero section start -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <div class="cta-text">
+                <div class="welcome-text">
+                    <h1>Bringing only the best of technology to the palms of YOUR HANDS</h1>
+                </div>
+                <div class="welcome-text2">
+                    <h2>With G+Phonez</h2>
+                </div>
+                <div class="welcome-text3">
+                    <h1>Founded in 2023.</h1>
+                </div>
+                <div class="welcome-text4">
+                    <h1>Click below to start your new mobile journey</h1>
+                </div>
+            </div>
+            <a th:href="@{/shop}" href="#" class="btn">shop now</a>
+        </div>
+    </section>
+
+    <!-- call to action hero section end -->
+    <!-- box feats section start -->
+
+    <h1 class="heading"> our <span>features</span> </h1>
+    <section id="box-feats" class="section-box-feats">
+        <div class="boxes">
+            <i class="fas fa-shipping-fast"></i>
+            <h6>Fast Delivery</h6>
+        </div>
+        <div class="boxes">
+            <i class="fa-solid fa-computer"></i>
+            <h6>Order Online</h6>
+        </div>
+        <div class="boxes">
+            <i class="fa-sharp fa-solid fa-mobile-screen-button"></i>
+            <h6>Latest Tech</h6>
+        </div>
+        <div class="boxes">
+            <i class="fa-solid fa-earth-americas"></i>
+            <h6>global Shipping</h6>
+        </div>
+        <div class="boxes">
+            <i class="fa-solid fa-money-bill"></i>
+            <h6>Money-Guarantee</h6>
+        </div>
+        <div class="boxes">
+            <i class="fa-sharp fa-solid fa-phone-volume"></i>
+            <h6>24-hour Support</h6>
+        </div>
+    </section>
+
+    <!-- box feats section end -->
+    <!-- product categories section start -->
+
+
+    <h1 class="heading"> product <span>categories</span> </h1>
+    <section class="categories1">
+        <div class="categories">
+            <div class="categories__container1">
+                <a th:href="@{/shop/category/1}" class="categories__card1">
+                    <h2>Phones</h2>
+                    <p>The latest and greatest of technology</p>
+                </a>
+                <a th:href="@{/shop/category/2}" class="categories__card2">
+                    <h2>Cables</h2>
+                    <p>Need some juice for your device?</p>
+                </a>
+                <a th:href="@{/shop/category/3}" class="categories__card3">
+                    <h2>Power Bricks</h2>
+                    <p>Need that juice faster? Try our high wattage power bricks!</p>
+                </a>
+                <a th:href="@{/shop/category/4}" class="categories__card4">
+                    <h2>Cases</h2>
+                    <p>We always recommend to protect your device. Try one of our cases!</p>
+                </a>
+                <a th:href="@{/shop/category/5}" class="categories__card5">
+                    <h2>Mounts</h2>
+                    <p>Save yourself from a ticket and use one of our car mounts!</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- product categories section end -->
+    <!-- customer reviews section start -->
+
+    <section class="review" id="review">
+        <h1 class="heading"> customer <span>reviews</span> </h1>
+        <section class="container">
+            <div class="testimonial mySwiper">
+                <div class="testi-content swiper-wrapper">
+                    <div class="slide swiper-slide">
+                        <img src="images/review1.jpg" alt="" class="image" />
+                        <p>
+                            I love my new iphone!. Thank you to G+phonez for 
+                            such wonderful service. I honestly have not come across 
+                            such great customer service and quality in a long time. 
+                            I will definitely be referring you to my friends and family 
+                            and will continue to shop with you guys for the forseeable future!
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                                <span class="name">Andre Mikeal</span>
+                            <span class="job">"Purchased an Iphone 14"</span>
+                        </div>
+                    </div>
+                    <div class="slide swiper-slide">
+                        <img src="images/review2.jpg" alt="" class="image" />
+                        <p>
+                            hi just wanted to thank you for the support on the contact us page.
+                            i was in contact with uways and kess by email. they provided me with excellent
+                            support on my issues with my order and helped clear any misunderstandings i had. 
+                            As well as threw in some freebies with my recent order! Can u believe that honestly such a great 
+                            company with amazing staff. 
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <span class="name">Sarah Lottie Jane</span>
+                            <span class="job">"Purchased an Iphone charging cable"</span>
+                        </div>
+                    </div>
+                    <div class="slide swiper-slide">
+                        <img src="images/review3.jpg" alt="" class="image" />
+                        <p>
+                            Having purchased numerous , varieties and styles of mounts
+                            i was honestly quite baffled by the quality and craftsmanship!
+                            i was expecting something cheap and plastic but to my surprise, it is 
+                            genuinely a very sturdy and well put together mount that can hold a
+                            variety of phones with ease. 
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <span class="name">Professor maxwell</span>
+                            <span class="job">"Purchased a universal mount"</span>
+                        </div>
+                    </div>
+                    <div class="slide swiper-slide">
+                        <img src="images/review4.jpg" alt="" class="image" />
+                        <p>
+                            As you might be able to tell by my picture, im quite new to all
+                            this tech even though ive been around for a while my grandson is actually 
+                            the one who recommended me to try this website And at first i wasn't to keen on the idea
+                            of a new phone. But honestly the customer service team helped me not only 
+                            pick one thats right for me but help me all the way to checkout.
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <span class="name">Hilary Zhuge</span>
+                            <span class="job">"Purchased a Google pixel 7"</span>
+                        </div>
+                    </div>
+                    <div class="slide swiper-slide">
+                        <img src="images/review5.1.jpg" alt="" class="image" />
+                        <p>
+                            Im not really one to protect my phone. lol after having gone 
+                            through over 20+ in my lifetime. But G+Phonez helped me change just
+                            that. i don't think people understand how convenient it is when all 
+                            the stuff you need for a new phone is on one easy to use and access website.
+                            Cases , phones chargers etc... they've got it ALL!
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <span class="name">Elloise mcarpenter</span>
+                            <span class="job">"purchased an Iphone 14 and Case"</span>
+                        </div>
+                    </div>
+                    <div class="slide swiper-slide">
+                        <img src="images/review6.jpg" alt="" class="image" />
+                        <p>
+                            I've heard a lot about this company and it's guarantee to quality.
+                            i have a youtube channel dedicated to finding the best quality tech 
+                            items for my viewers. So as u might be able to tell because of my 5 star 
+                            rating they have exceeded my expectations! Their quality is unmatched and 
+                            i look forward to reviewing more of their products soon! 
+                        </p>
+                        <i class="bx bxs-quote-alt-left quote-icon"></i>
+                        <div class="details">
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <span class="name">Alex patterson</span>
+                            <span class="job">"purchased a charging cable and power brick"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next nav-btn"></div>
+                <div class="swiper-button-prev nav-btn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+    </section>
+
+    <!-- customer reviews section end -->
+    <!-- user reviews section start -->
+
+    <section class = "reviews">
+
+        <hr style="border:3px solid #dffdff">
+        <span class="row-heading-text">Average User Rating</span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <p>4.2 average based on 3,000 reviews.</p>
+        <hr style="border:3px solid #dffdff">
+
+        <div class="rows">
+            <div class="side">
+                <div>5 star</div>
+            </div>
+
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-5"></div>
+                </div>
+            </div>
+
+            <div class="side right">
+                <div>1,519</div>
+            </div>
+
+            <div class="side">
+                <div>4 star</div>
+            </div>
+
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-4"></div>
+                </div>
+            </div>
+
+            <div class="side right">
+                <div>1,024</div>
+            </div>
+
+            <div class="side">
+                <div>3 star</div>
+            </div>
+
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-3"></div>
+                </div>
+            </div>
+
+            <div class="side right">
+                <div>457</div>
+            </div>
+
+            <div class="side">
+                <div>2 star</div>
+            </div>
+
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-2"></div>
+                </div>
+            </div>
+
+            <div class="side right">
+                <div>0</div>
+            </div>
+
+            <div class="side">
+                <div>1 star</div>
+            </div>
+
+            <div class="middle">
+                <div class="bar-container">
+                    <div class="bar-1"></div>
+                </div>
+            </div>
+
+            <div class="side right">
+                <div>0</div>
+            </div>
+        </div>
+
+        <hr style="border:3px solid #dffdff">
+    </section>
+
+    <!-- user reviews section end -->
+    <!-- bottom hero start -->
+
+    <section class="bottom-hero" id="bottom-hero">
+        <div class="content">
+            <h3>get started</h3>
+            <p>Discover the latest smartphones and accessories at unbeatable prices. Shop now and experience the best in mobile technology.</p>
+            <a th:href="@{/register}" class="btn">register</a>
+        </div>
+    </section>
+
+    <!-- bottom hero end -->
+    <!-- footer start -->
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3> G+Phonez </h3>
+                <p>We are G+phonez , if you have any queries or troubles please feel free to contact us!</p>
+                <div class="share">
+                    <a th:href="@{https://en-gb.facebook.com/}" href="#" class="fab fa-facebook-f"></a>
+                    <a th:href="@{https://twitter.com/home/}" href="#" class="fab fa-twitter"></a>
+                    <a th:href="@{https://www.instagram.com/}" href="#" class="fab fa-instagram"></a>
+                    <a th:href="@{https://www.linkedin.com/feed/}" href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +0800 111 222 </a>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +1111 222 333 </a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i> g+phonezsupport@gmail.com </a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> birmingham, united kingdom </a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a th:href="@{/}" href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+                <a th:href="@{/shop}" href="#" class="links"> <i class="fas fa-arrow-right"></i> shop </a>
+                <a th:href="@{/aboutUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> about us </a>
+                <a th:href="@{/contactUs}" href="#" class="links"> <i class="fas fa-arrow-right"></i> contact us </a>
+            </div>
+        </div>
+        <div class="credit"> created by <span> Group30 </span> | Aston University</div>
+    </section>
+
+    <!-- footer end -->
+
+    <!-- script links bundle -->
+    <script th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/popper.js/dist/umd/popper.min.js}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js}" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- swiper bundle -->
+    <script th:src="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js}"></script>
+
+    <!-- custom js file link  -->
+    <script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+</body>
+</html>

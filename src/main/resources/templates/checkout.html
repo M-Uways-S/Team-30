@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Categories Page</title>
+
+    <!-- swiper link -->
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+    <!-- font awesome link link -->
+    <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+    <!-- custom css link -->
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+    <!-- boxicons CSS -->
+    <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- header start -->
+
+<header class="header">
+    <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+    <nav class="navbar">
+        <a th:href="@{/}" href="#">Home</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+    </nav>
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
+    </div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- header end -->
+
+<div class="container">
+
+    <!--Section: Block Content-->
+    <section class="mt-5 mb-4">
+
+        <!--Grid row-->
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-lg-8 mb-4">
+
+                <!-- Card -->
+                <div class="card wish-list pb-1">
+                    <div class="card-body">
+
+                        <h5 class="mb-2">Billing details</h5>
+
+                        <!-- Grid row -->
+                        <div class="row">
+
+                            <!-- Grid column -->
+                            <div class="col-lg-6">
+
+                                <!-- First name -->
+                                <div class="md-form md-outline mb-0 mb-lg-4">
+                                    <label for="firstName">First name</label>
+                                    <input type="text" id="firstName" required class="form-control mb-0 mb-lg-2">
+                                </div>
+
+                            </div>
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+                            <div class="col-lg-6">
+
+                                <!-- Last name -->
+                                <div class="md-form md-outline">
+                                    <label for="lastName">Last name</label>
+                                    <input type="text" id="lastName" required class="form-control">
+                                </div>
+
+                            </div>
+                            <!-- Grid column -->
+
+                        </div>
+                        <!-- Grid row -->
+
+
+
+                        <!-- Country -->
+                        <div class="d-flex flex-wrap">
+                            <div class="select-outline position-relative w-100">
+                                <label>Country - <strong>United Kingdom</strong></label>
+
+
+                            </div>
+                        </div>
+
+                        <!-- Address Part 1 -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form14">Address (Line 1)</label>
+                            <input type="text" required id="form14" placeholder="House number and street name" class="form-control">
+                        </div>
+
+                        <!-- Address Part 2 -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form15">Address (Line 2)</label>
+                            <input type="text" id="form15" placeholder="Apartment, suite, unit etc. (optional)"
+                                   class="form-control">
+                        </div>
+
+                        <!-- Postcode / ZIP -->
+                        <div class="md-form md-outline mt-3">
+                            <label for="form16">Postcode / ZIP</label>
+                            <input type="text" maxlength="6" minlength="6" required id="form16" class="form-control">
+                        </div>
+
+                        <!-- Town / City -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form17">Town / City</label>
+                            <input type="text" required id="form17" class="form-control">
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form18">Phone</label>
+                            <input type="number" minlength="10" maxlength="10" required id="form18" class="form-control">
+                        </div>
+
+                        <!-- Email address -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form19">Email address</label>
+                            <input type="email" required id="form19" class="form-control">
+                        </div>
+
+                        <!-- Additional information -->
+                        <div class="md-form md-outline mt-2">
+                            <label for="form76">Additional information</label>
+                            <textarea id="form76" class="md-textarea form-control" rows="4"></textarea>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- Card -->
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-4">
+
+                <!-- Card -->
+                <div class="card mb-4">
+                    <div class="card-body">
+
+                        <h5 class="mb-3">The total amount </h5>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                Amount Payable
+                                <span>£<span th:text="${total}"></span></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                Shipping
+                                <span>Free Shipping</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <div>
+                                    <strong>The total amount of</strong>
+                                    <strong>
+                                        <p class="mb-0">(including VAT)</p>
+                                    </strong>
+                                </div>
+                                <span><strong>£<span th:text="${total}"></span></strong></span>
+                            </li>
+                        </ul>
+
+                        <form action="" method="post" th:action="@{/payNow}" th:object="${orderDTO}">
+                            <input type="hidden" name="id" th:field="*{id}">
+                            <input type="hidden" name="user" th:field="*{user}">
+                            <button type="submit"  class="btn btn-primary btn-block waves-effect waves-light">Pay Now</button>
+                        </form>
+
+                    </div>
+                </div>
+                <!-- Card -->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Block Content-->
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- custom js file link  -->
+<script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+</body>
+</html>

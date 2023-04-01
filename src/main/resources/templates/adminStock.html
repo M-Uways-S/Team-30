@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+
+    <!-- swiper link -->
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+    <!-- font awesome link link -->
+    <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+    <!-- custom css link -->
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+    <!-- boxicons CSS -->
+    <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+    <!-- header start -->
+
+    <header class="header">
+        <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+        <nav class="navbar">
+            <a th:href="@{/}" href="#">Home</a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- header end -->
+
+
+    <body>
+        <section id="ad-list-customer" class="section-1">
+            <table width=auto>
+                <h2>Customer List</h2>
+                <thead>
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First.Name</td>
+                        <td>Last.Name</td>
+                        <td>email@email.com</td>
+                    </tr> 
+                </tbody>
+            </table>
+        </section>
+
+
+    <section id="admin-product-stock" class="section-p1">
+            <table width=auto>
+                <h2>Items In Stock</h2>
+                <thead>
+                    
+                    <tr>
+                        <td>Product Name</td>
+                        <td>Product Price</td>
+                        <td>Product Quantity</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Product.name</td>
+                        <td>Product.price</td>
+                        <td>
+                            <input type="number" name="quantity" value="Product.Quantity" min="1" max="100" style="background-color: #f2f2f2; border: none; padding: 5px;" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="admin-currently-placed-orders" class="section-p1">
+            <table width=auto>
+                <h2>Currently Placed Orders</h2>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Email</td>
+                        <td>Product</td>
+                        <td>Total</td>
+                        <td>Quantity</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Order.Date</td>
+                        <td>Order.Email</td>
+                        <td>Order.Name</td>
+                        <td>Order.Total</td>
+                        <td>Order.Quantity</td>
+                        <td><select class="form-control" name="orderStatus">
+                            <option th:value="PENDING" th:text="Pending" ></option>
+                            <option th:value="SHIPPED" th:text="Shipped" ></option>
+                            <option th:value="DELIVERED" th:text="Delivered" ></option>
+                            <option th:value="CANCELLED" th:text="Cancelled" ></option>
+                        </select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+        
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- custom js file link  -->
+    <script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+</body>
+</html>

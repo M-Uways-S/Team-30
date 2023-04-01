@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Categories Page</title>
+
+  <!-- swiper link -->
+  <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css}"/>
+
+  <!-- font awesome link link -->
+  <link rel="stylesheet" th:href="@{https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css}">
+
+  <!-- custom css link -->
+  <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+
+  <!-- boxicons CSS -->
+  <link th:href="@{https://unpkg.com/boxicons/css/boxicons.min.css}" rel="stylesheet"/>
+
+  <!-- bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- header start -->
+
+<header class="header">
+  <a th:href="@{/}" href="#"><img th:src="@{/images/logo.png}" class="logo" alt=""></a>
+  <nav class="navbar">
+    <a th:href="@{/}" href="#">Home</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}" href="#">Admin</a>
+  </nav>
+  <div class="icons">
+    <div class="fas fa-bars" id="menu-btn"></div>
+    <a class="fa-regular fa-user" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#"></a>
+  </div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- header end -->
+
+<div style="background-color: #f5f5f5; padding: 10px;">
+  <h3>Printable report: Stock levels and incoming and outgoing orders</h3>
+  <ol>
+    <li>Click on the three dots in the top right corner of your browser window</li>
+    <li>Select "Print" from the drop-down menu or Ctrl+P</li>
+    <li>Choose your printer and adjust any print settings to your desire</li>
+    <li>Click "Print" to print your report</li>
+  </ol>
+</div>
+
+<br><br><br><br>
+
+
+<section id="admin-stock" class="section-p1">
+  <table width=auto id="Table">
+    <h2>Items In Stock</h2>
+    <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Stock Level</th>
+      <th scope="col">Category</th>
+      <th scope="col">Preview</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <!--        ALTER TABLE product RENAME COLUMN weight TO stock;-->
+    <!--        ALTER TABLE product ALTER COLUMN stock INTEGER;-->
+
+    <tr th:each="product, iStat : ${products}">
+      <th scope="row" th:text="${iStat.index + 1}">1</th>
+      <td th:text="${product.name}">Larry</td>
+      <td>
+        <input type="number" min="0" step="1" th:value="${product.stock}"
+               th:attr="data-product-id=${product.id}"
+               onchange="updateStockLevel(event)">
+      </td>
+      <td class="stock-level" th:text="${product.stock > 0 ? 'In Stock' : 'Out of Stock'}"
+          th:classappend="${product.stock <= 0 ? 'text-danger' : product.stock < 10 ? 'text-warning' : 'text-success'}">
+      </td>
+      <td th:text="${product.category.name}">Larry</td>
+      <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<script>
+  function updateStockLevel(event) {
+    const productId = event.target.dataset.productId;
+    const stockLevelElement = document.querySelector(`[data-product-id="${productId}"]`).closest('tr').querySelector('.stock-level');
+    const stock = event.target.value;
+
+    if (stock <= 0){
+      stockLevelElement.innerHTML = "Out of Stock";
+      stockLevelElement.classList.remove('text-warning', 'text-success');
+      stockLevelElement.classList.add('text-danger');
+    } else if (stock < 10){
+      stockLevelElement.innerHTML = "Low Stock";
+      stockLevelElement.classList.remove('text-danger', 'text-success');
+      stockLevelElement.classList.add('text-warning');
+    } else {
+      stockLevelElement.innerHTML = "In Stock";
+      stockLevelElement.classList.remove('text-danger', 'text-warning');
+      stockLevelElement.classList.add('text-success');
+    }
+  }
+</script>
+
+<br><br><br>
+<!--
+<section id="ad-list-customer" class="section-1">
+  <table width=auto>
+    <h2>Customer List</h2>
+    <thead>
+    <tr>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Email</td>
+    </thead>
+    <tbody>
+    <tr th:each="user, iStat : ${users}">
+      <td th:text="${user.getFirstName}">First.Name</td>
+      <td th:text="${user.getLastName}">Last.Name</td>
+      <td th:text="${user.getEmail}">email@email.com</td>
+    </tr>
+    </tbody>
+  </table>
+</section> !-->
+<div style="background-color: #f5f5f5; padding: 10px;">
+  <h3>To configure an order as outgoing:</h3>
+  <ol>
+    <li>Click on the change status button below (yellow)</li>
+    <li>This will change it for the user to notify them</li>
+    <li>that it has gone from incoming(false) to outgoing(true) i.e. is being shipped</li>
+  </ol>
+</div>
+
+<br>
+
+<style>
+  #myInput {
+    width: 300px;
+    padding: 20px;
+    margin-right: 500px;
+    font-size: 16px;
+  }
+</style>
+
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Filter and search orders...">
+<section id="admin-currently-placed-orders" class="section-p1">
+  <table width=auto id="myTable">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 15%">
+      <col style="width: 30%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 7.5%">
+      <col style="width: 7.5%">
+    </colgroup>
+    <h2>Currently Placed Orders</h2>
+    <thead>
+    <tr>
+      <td>Date</td>
+      <td>Email</td>
+      <td>Product</td>
+      <td>Total</td>
+      <td>Quantity</td>
+      <td>Is Shipped</td>
+      <td>Change Status</td>
+      <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order, iStat : ${orders}">
+      <td th:text="${order.date}">Order.Date</td>
+      <td th:text="${order.user.email}">Email</td>
+      <td th:text="${order.product.name}">Product.Name</td>
+      <td th:text="${order.price}">Order.Total</td>
+      <td th:text="${order.stock}">Order.Quantity</td>
+      <td th:text="${order.isShipped}">Status</td>
+
+      <td><a href="" th:href="@{/admin/orders/shipped/{id}(id=${order.id})}" class="btn btn-warning">Change Status</a></td>
+      <td><a href="" th:href="@{/admin/orders/delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function filterTable() {
+      var input, filter, table, tr, td, i, j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+          if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+            break;
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</section>
+
+
+<!--<div class="container-fluid">
+
+  <a th:href="@{/admin/orders/add}" style="margin: 20px 0" class="btn btn-primary">Add Order (W.I.P.)</a>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Product ID</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Is Shipped</th>
+      <th scope="col"> </th>
+      <th scope="col">Delete</th>
+
+      
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="order, iStat : ${orders}">
+      <th scope="row" th:text="${iStat.index + 1}">1</th>
+      <td th:text="${order.user.id}">Larry</td>
+      <td th:text="${order.product.id}">Larry</td>
+      <td th:text="${order.price}">Larry</td>
+      <td th:text="${order.stock}">Larry</td>
+      <td th:text="${order.isShipped}">Larry</td>
+
+      <td><a href="" th:href="@{/admin/orders/shipped/{id}(id=${order.id})}" class="btn btn-warning">Change Status</a></td>
+      <td><a href="" th:href="@{/admin/orders/delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+    </tbody>
+  </table>
+</div> !-->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- custom js file link  -->
+<script src="" href="/static/js/script.js" th:src="@{/js/script.js}" ></script>
+
+</body>
+</html>
