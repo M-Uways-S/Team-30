@@ -14,7 +14,7 @@ Aston University CS2TP Web application project.
 -- HTML, CSS, JS.
 
 - Back end
--- Spring Boot, H2, Java.
+-- Spring Boot, H2, Thymeleaf, Hibernate ORM, Java.
 
 ## Installation ⚙️
 
@@ -22,9 +22,9 @@ Aston University CS2TP Web application project.
 
 1. Clone the github repository (https://github.com/M-Uways-S/Team-30.git)
 2. Open in an IDE (e.g Visual studio)
-3. Follow this path: src->test->"MajorApplicationTests.java"
-4. Run "MajorApplicationTests.java" (ensure java extensions are installed)
-5. Open a web browser and enter "localhost:8080"
+3. Follow this path: src/main/java/com/group30/major/MajorApplication.java
+4. Run "MajorApplication.java" (ensure java extensions are installed)
+5. Open a web browser and enter "localhost:8080" in the address bar
 
 
 
